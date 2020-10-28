@@ -1,6 +1,6 @@
-package com.saic.example_project.repository;
+package com.saic.Venus.repository;
 
-import com.saic.example_project.domain.User;
+import com.saic.Venus.domain.User;
 
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;

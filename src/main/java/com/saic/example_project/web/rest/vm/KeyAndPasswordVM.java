@@ -1,4 +1,4 @@
-package com.saic.example_project.web.rest.vm;
+package com.saic.Venus.web.rest.vm;
 
 /**
  * View Model object for storing the user's key and password.

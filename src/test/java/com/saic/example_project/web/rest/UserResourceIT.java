@@ -1,13 +1,13 @@
-package com.saic.example_project.web.rest;
+package com.saic.Venus.web.rest;
 
-import com.saic.example_project.ExampleProjectApp;
-import com.saic.example_project.domain.Authority;
-import com.saic.example_project.domain.User;
-import com.saic.example_project.repository.UserRepository;
-import com.saic.example_project.security.AuthoritiesConstants;
-import com.saic.example_project.service.dto.UserDTO;
-import com.saic.example_project.service.mapper.UserMapper;
-import com.saic.example_project.web.rest.vm.ManagedUserVM;
+import com.saic.Venus.ExampleProjectApp;
+import com.saic.Venus.domain.Authority;
+import com.saic.Venus.domain.User;
+import com.saic.Venus.repository.UserRepository;
+import com.saic.Venus.security.AuthoritiesConstants;
+import com.saic.Venus.service.dto.UserDTO;
+import com.saic.Venus.service.mapper.UserMapper;
+import com.saic.Venus.web.rest.vm.ManagedUserVM;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,7 +1,7 @@
-package com.saic.example_project.security;
+package com.saic.Venus.security;
 
-import com.saic.example_project.domain.User;
-import com.saic.example_project.repository.UserRepository;
+import com.saic.Venus.domain.User;
+import com.saic.Venus.repository.UserRepository;
 import org.hibernate.validator.internal.constraintvalidators.hv.EmailValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

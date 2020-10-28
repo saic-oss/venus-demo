@@ -1,4 +1,4 @@
-package com.saic.example_project.config;
+package com.saic.Venus.config;
 
 import ch.qos.logback.classic.LoggerContext;
 import com.fasterxml.jackson.core.JsonProcessingException;

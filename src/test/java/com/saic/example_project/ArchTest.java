@@ -1,4 +1,4 @@
-package com.saic.example_project;
+package com.saic.Venus;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
@@ -14,15 +14,15 @@ class ArchTest {
 
         JavaClasses importedClasses = new ClassFileImporter()
             .withImportOption(ImportOption.Predefined.DO_NOT_INCLUDE_TESTS)
-            .importPackages("com.saic.example_project");
+            .importPackages("com.saic.Venus");
 
         noClasses()
             .that()
-                .resideInAnyPackage("com.saic.example_project.service..")
+                .resideInAnyPackage("com.saic.Venus.service..")
             .or()
-                .resideInAnyPackage("com.saic.example_project.repository..")
+                .resideInAnyPackage("com.saic.Venus.repository..")
             .should().dependOnClassesThat()
-                .resideInAnyPackage("..com.saic.example_project.web..")
+                .resideInAnyPackage("..com.saic.Venus.web..")
         .because("Services and repositories should not depend on web layer")
         .check(importedClasses);
     }

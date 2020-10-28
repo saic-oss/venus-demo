@@ -1,6 +1,6 @@
-package com.saic.example_project.domain;
+package com.saic.Venus.domain;
 
-import com.saic.example_project.config.Constants;
+import com.saic.Venus.config.Constants;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.apache.commons.lang3.StringUtils;

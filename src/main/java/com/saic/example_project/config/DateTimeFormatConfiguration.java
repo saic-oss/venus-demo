@@ -1,4 +1,4 @@
-package com.saic.example_project.config;
+package com.saic.Venus.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;

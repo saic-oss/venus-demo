@@ -1,4 +1,4 @@
-package com.saic.example_project.domain;
+package com.saic.Venus.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

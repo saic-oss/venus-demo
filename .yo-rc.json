@@ -1,13 +1,13 @@
 {
   "generator-jhipster": {
     "promptValues": {
-      "packageName": "com.saic.example_project"
+      "packageName": "com.saic.Venus"
     },
     "jhipsterVersion": "6.10.3",
     "applicationType": "monolith",
-    "baseName": "Example_Project",
-    "packageName": "com.saic.example_project",
-    "packageFolder": "com/saic/example_project",
+    "baseName": "Venus",
+    "packageName": "com.saic.Venus",
+    "packageFolder": "com/saic/Venus",
     "serverPort": "8080",
     "authenticationType": "jwt",
     "cacheProvider": "ehcache",

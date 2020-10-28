@@ -1,6 +1,6 @@
-package com.saic.example_project.repository;
+package com.saic.Venus.repository;
 
-import com.saic.example_project.domain.PersistentAuditEvent;
+import com.saic.Venus.domain.PersistentAuditEvent;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

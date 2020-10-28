@@ -1,6 +1,6 @@
-package com.saic.example_project.config;
+package com.saic.Venus.config;
 
-import com.saic.example_project.aop.logging.LoggingAspect;
+import com.saic.Venus.aop.logging.LoggingAspect;
 
 import io.github.jhipster.config.JHipsterConstants;
 

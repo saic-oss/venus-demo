@@ -1,4 +1,4 @@
-# Example_Project
+# Venus
 
 This application was generated using JHipster 6.10.3, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.10.3](https://www.jhipster.tech/documentation-archive/v6.10.3).
 
@@ -120,7 +120,7 @@ Refer to [Doing API-First development][] for more details.
 
 ### Packaging as jar
 
-To build the final jar and optimize the Example_Project application for production, run:
+To build the final jar and optimize the Venus application for production, run:
 
 ```
 
@@ -246,7 +246,6 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 [openapi-generator]: https://openapi-generator.tech
 [swagger-editor]: https://editor.swagger.io
 [doing api-first development]: https://www.jhipster.tech/documentation-archive/v6.10.3/doing-api-first-development/
-
 
 ## Files
 

@@ -1,4 +1,4 @@
 /**
  * JPA domain objects.
  */
-package com.saic.example_project.domain;
+package com.saic.Venus.domain;

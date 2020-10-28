@@ -1,8 +1,8 @@
-package com.saic.example_project.service;
+package com.saic.Venus.service;
 
-import com.saic.example_project.domain.PersistentAuditEvent;
-import com.saic.example_project.repository.PersistenceAuditEventRepository;
-import com.saic.example_project.ExampleProjectApp;
+import com.saic.Venus.domain.PersistentAuditEvent;
+import com.saic.Venus.repository.PersistenceAuditEventRepository;
+import com.saic.Venus.ExampleProjectApp;
 import io.github.jhipster.config.JHipsterProperties;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

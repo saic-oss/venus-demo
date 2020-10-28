@@ -1,4 +1,4 @@
-package com.saic.example_project.config;
+package com.saic.Venus.config;
 
 import io.github.jhipster.config.JHipsterDefaults;
 import io.github.jhipster.config.JHipsterProperties;
@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 
 import java.util.concurrent.TimeUnit;
 
-import static com.saic.example_project.config.StaticResourcesWebConfiguration.*;
+import static com.saic.Venus.config.StaticResourcesWebConfiguration.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 

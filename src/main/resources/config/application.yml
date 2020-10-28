@@ -59,7 +59,7 @@ management:
 
 spring:
   application:
-    name: Example_Project
+    name: Venus
   profiles:
     # The commented value for `active` can be replaced with valid Spring profiles to load.
     # Otherwise, it will be filled in by gradle when building the JAR file
@@ -141,11 +141,11 @@ jhipster:
   #     allow-credentials: true
   #     max-age: 1800
   mail:
-    from: Example_Project@localhost
+    from: Venus@localhost
   swagger:
     default-include-pattern: /api/.*
-    title: Example_Project API
-    description: Example_Project API documentation
+    title: Venus API
+    description: Venus API documentation
     version: 0.0.1
     terms-of-service-url:
     contact-name:

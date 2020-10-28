@@ -1,16 +1,16 @@
 version: '2'
 services:
-  example_project-app:
-    image: example_project
+  Venus-app:
+    image: Venus
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - SPRING_PROFILES_ACTIVE=prod,swagger
       - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://example_project-postgresql:5432/Example_Project
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://Venus-postgresql:5432/Venus
       - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
     ports:
       - 8080:8080
-  example_project-postgresql:
+  Venus-postgresql:
     extends:
       file: postgresql.yml
-      service: example_project-postgresql
+      service: Venus-postgresql

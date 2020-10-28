@@ -1,15 +1,15 @@
-package com.saic.example_project.web.rest;
+package com.saic.Venus.web.rest;
 
-import com.saic.example_project.domain.User;
-import com.saic.example_project.repository.UserRepository;
-import com.saic.example_project.security.SecurityUtils;
-import com.saic.example_project.service.MailService;
-import com.saic.example_project.service.UserService;
-import com.saic.example_project.service.dto.PasswordChangeDTO;
-import com.saic.example_project.service.dto.UserDTO;
-import com.saic.example_project.web.rest.errors.*;
-import com.saic.example_project.web.rest.vm.KeyAndPasswordVM;
-import com.saic.example_project.web.rest.vm.ManagedUserVM;
+import com.saic.Venus.domain.User;
+import com.saic.Venus.repository.UserRepository;
+import com.saic.Venus.security.SecurityUtils;
+import com.saic.Venus.service.MailService;
+import com.saic.Venus.service.UserService;
+import com.saic.Venus.service.dto.PasswordChangeDTO;
+import com.saic.Venus.service.dto.UserDTO;
+import com.saic.Venus.web.rest.errors.*;
+import com.saic.Venus.web.rest.vm.KeyAndPasswordVM;
+import com.saic.Venus.web.rest.vm.ManagedUserVM;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;

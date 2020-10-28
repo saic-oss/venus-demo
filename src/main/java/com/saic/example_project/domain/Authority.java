@@ -1,4 +1,4 @@
-package com.saic.example_project.domain;
+package com.saic.Venus.domain;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;

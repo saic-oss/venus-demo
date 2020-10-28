@@ -1,4 +1,4 @@
-package com.saic.example_project.web.rest.errors;
+package com.saic.Venus.web.rest.errors;
 
 import org.springframework.dao.ConcurrencyFailureException;
 import org.springframework.http.HttpStatus;

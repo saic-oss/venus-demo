@@ -1,4 +1,4 @@
-package com.saic.example_project.web.rest.vm;
+package com.saic.Venus.web.rest.vm;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;

@@ -1,4 +1,4 @@
-package com.saic.example_project.config;
+package com.saic.Venus.config;
 
 import java.time.Duration;
 
@@ -43,11 +43,11 @@ public class CacheConfiguration {
     @Bean
     public JCacheManagerCustomizer cacheManagerCustomizer() {
         return cm -> {
-            createCache(cm, com.saic.example_project.repository.UserRepository.USERS_BY_LOGIN_CACHE);
-            createCache(cm, com.saic.example_project.repository.UserRepository.USERS_BY_EMAIL_CACHE);
-            createCache(cm, com.saic.example_project.domain.User.class.getName());
-            createCache(cm, com.saic.example_project.domain.Authority.class.getName());
-            createCache(cm, com.saic.example_project.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.saic.Venus.repository.UserRepository.USERS_BY_LOGIN_CACHE);
+            createCache(cm, com.saic.Venus.repository.UserRepository.USERS_BY_EMAIL_CACHE);
+            createCache(cm, com.saic.Venus.domain.User.class.getName());
+            createCache(cm, com.saic.Venus.domain.Authority.class.getName());
+            createCache(cm, com.saic.Venus.domain.User.class.getName() + ".authorities");
             // jhipster-needle-ehcache-add-entry
         };
     }

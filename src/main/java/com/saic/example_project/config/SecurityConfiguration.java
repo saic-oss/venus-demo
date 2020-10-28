@@ -1,7 +1,7 @@
-package com.saic.example_project.config;
+package com.saic.Venus.config;
 
-import com.saic.example_project.security.*;
-import com.saic.example_project.security.jwt.*;
+import com.saic.Venus.security.*;
+import com.saic.Venus.security.jwt.*;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;

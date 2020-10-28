@@ -1,8 +1,8 @@
-package com.saic.example_project.repository;
+package com.saic.Venus.repository;
 
-import com.saic.example_project.config.Constants;
-import com.saic.example_project.config.audit.AuditEventConverter;
-import com.saic.example_project.domain.PersistentAuditEvent;
+import com.saic.Venus.config.Constants;
+import com.saic.Venus.config.audit.AuditEventConverter;
+import com.saic.Venus.domain.PersistentAuditEvent;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,8 +1,8 @@
-package com.saic.example_project.web.rest;
+package com.saic.Venus.web.rest;
 
-import com.saic.example_project.security.jwt.JWTFilter;
-import com.saic.example_project.security.jwt.TokenProvider;
-import com.saic.example_project.web.rest.vm.LoginVM;
+import com.saic.Venus.security.jwt.JWTFilter;
+import com.saic.Venus.security.jwt.TokenProvider;
+import com.saic.Venus.web.rest.vm.LoginVM;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

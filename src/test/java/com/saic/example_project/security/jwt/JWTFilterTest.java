@@ -1,6 +1,6 @@
-package com.saic.example_project.security.jwt;
+package com.saic.Venus.security.jwt;
 
-import com.saic.example_project.security.AuthoritiesConstants;
+import com.saic.Venus.security.AuthoritiesConstants;
 import io.github.jhipster.config.JHipsterProperties;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;

@@ -1,4 +1,4 @@
-package com.saic.example_project.service;
+package com.saic.Venus.service;
 
 public class UsernameAlreadyUsedException extends RuntimeException {
 

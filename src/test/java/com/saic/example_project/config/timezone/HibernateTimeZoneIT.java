@@ -1,8 +1,8 @@
-package com.saic.example_project.config.timezone;
+package com.saic.Venus.config.timezone;
 
-import com.saic.example_project.ExampleProjectApp;
-import com.saic.example_project.repository.timezone.DateTimeWrapper;
-import com.saic.example_project.repository.timezone.DateTimeWrapperRepository;
+import com.saic.Venus.ExampleProjectApp;
+import com.saic.Venus.repository.timezone.DateTimeWrapper;
+import com.saic.Venus.repository.timezone.DateTimeWrapperRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

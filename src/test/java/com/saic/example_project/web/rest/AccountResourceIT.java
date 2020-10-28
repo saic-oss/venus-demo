@@ -1,16 +1,16 @@
-package com.saic.example_project.web.rest;
+package com.saic.Venus.web.rest;
 
-import com.saic.example_project.ExampleProjectApp;
-import com.saic.example_project.config.Constants;
-import com.saic.example_project.domain.User;
-import com.saic.example_project.repository.AuthorityRepository;
-import com.saic.example_project.repository.UserRepository;
-import com.saic.example_project.security.AuthoritiesConstants;
-import com.saic.example_project.service.UserService;
-import com.saic.example_project.service.dto.PasswordChangeDTO;
-import com.saic.example_project.service.dto.UserDTO;
-import com.saic.example_project.web.rest.vm.KeyAndPasswordVM;
-import com.saic.example_project.web.rest.vm.ManagedUserVM;
+import com.saic.Venus.ExampleProjectApp;
+import com.saic.Venus.config.Constants;
+import com.saic.Venus.domain.User;
+import com.saic.Venus.repository.AuthorityRepository;
+import com.saic.Venus.repository.UserRepository;
+import com.saic.Venus.security.AuthoritiesConstants;
+import com.saic.Venus.service.UserService;
+import com.saic.Venus.service.dto.PasswordChangeDTO;
+import com.saic.Venus.service.dto.UserDTO;
+import com.saic.Venus.web.rest.vm.KeyAndPasswordVM;
+import com.saic.Venus.web.rest.vm.ManagedUserVM;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -28,7 +28,7 @@ import java.time.Instant;
 import java.util.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static com.saic.example_project.web.rest.AccountResourceIT.TEST_USER_LOGIN;
+import static com.saic.Venus.web.rest.AccountResourceIT.TEST_USER_LOGIN;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 

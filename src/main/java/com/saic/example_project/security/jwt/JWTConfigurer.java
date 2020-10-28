@@ -1,4 +1,4 @@
-package com.saic.example_project.security.jwt;
+package com.saic.Venus.security.jwt;
 
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

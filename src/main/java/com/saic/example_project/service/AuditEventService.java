@@ -1,8 +1,8 @@
-package com.saic.example_project.service;
+package com.saic.Venus.service;
 
 import io.github.jhipster.config.JHipsterProperties;
-import com.saic.example_project.config.audit.AuditEventConverter;
-import com.saic.example_project.repository.PersistenceAuditEventRepository;
+import com.saic.Venus.config.audit.AuditEventConverter;
+import com.saic.Venus.repository.PersistenceAuditEventRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.actuate.audit.AuditEvent;

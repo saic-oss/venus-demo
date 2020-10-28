@@ -1,4 +1,4 @@
-package com.saic.example_project.domain;
+package com.saic.Venus.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.CreatedBy;

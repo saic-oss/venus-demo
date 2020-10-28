@@ -1,13 +1,13 @@
-package com.saic.example_project.service;
+package com.saic.Venus.service;
 
-import com.saic.example_project.config.Constants;
-import com.saic.example_project.domain.Authority;
-import com.saic.example_project.domain.User;
-import com.saic.example_project.repository.AuthorityRepository;
-import com.saic.example_project.repository.UserRepository;
-import com.saic.example_project.security.AuthoritiesConstants;
-import com.saic.example_project.security.SecurityUtils;
-import com.saic.example_project.service.dto.UserDTO;
+import com.saic.Venus.config.Constants;
+import com.saic.Venus.domain.Authority;
+import com.saic.Venus.domain.User;
+import com.saic.Venus.repository.AuthorityRepository;
+import com.saic.Venus.repository.UserRepository;
+import com.saic.Venus.security.AuthoritiesConstants;
+import com.saic.Venus.security.SecurityUtils;
+import com.saic.Venus.service.dto.UserDTO;
 
 import io.github.jhipster.security.RandomUtil;
 

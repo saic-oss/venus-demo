@@ -1,4 +1,4 @@
-package com.saic.example_project.service.dto;
+package com.saic.Venus.service.dto;
 
 /**
  * A DTO representing a password change required data - current and new password.

@@ -12,8 +12,8 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
-    url: jdbc:tc:postgresql:latest:///Example_Project?TC_TMPFS=/testtmpfs:rw
-    username: Example_Project
+    url: jdbc:tc:postgresql:latest:///Venus?TC_TMPFS=/testtmpfs:rw
+    username: Venus
     password:
     hikari:
       poolName: Hikari
