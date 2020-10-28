@@ -1,4 +1,4 @@
-package com.saic.Venus;
+package com.saic.venus;
 
 import io.github.jhipster.config.DefaultProfileUtil;
 

@@ -1,4 +1,4 @@
-package com.saic.Venus.cucumber.stepdefs;
+package com.saic.venus.cucumber.stepdefs;
 
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Then;
@@ -9,7 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.saic.Venus.web.rest.UserResource;
+import com.saic.venus.web.rest.UserResource;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;

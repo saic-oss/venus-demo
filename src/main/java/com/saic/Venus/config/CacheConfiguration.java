@@ -1,8 +1,6 @@
-package com.saic.Venus.config;
+package com.saic.venus.config;
 
 import java.time.Duration;
-
-import org.ehcache.config.builders.*;
 import org.ehcache.jsr107.Eh107Configuration;
 
 import org.hibernate.cache.jcache.ConfigSettings;

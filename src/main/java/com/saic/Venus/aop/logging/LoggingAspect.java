@@ -1,4 +1,4 @@
-package com.saic.Venus.aop.logging;
+package com.saic.venus.aop.logging;
 
 import io.github.jhipster.config.JHipsterConstants;
 

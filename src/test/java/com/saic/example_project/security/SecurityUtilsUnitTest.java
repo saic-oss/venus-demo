@@ -1,4 +1,4 @@
-package com.saic.Venus.security;
+package com.saic.venus.security;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

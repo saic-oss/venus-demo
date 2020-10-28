@@ -1,11 +1,11 @@
 version: '2'
 services:
-  Venus-postgresql:
+  venus-postgresql:
     image: postgres:12.3
     # volumes:
-    #     - ~/volumes/jhipster/Venus/postgresql/:/var/lib/postgresql/data/
+    #     - ~/volumes/jhipster/venus/postgresql/:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=Venus
+      - POSTGRES_USER=venus
       - POSTGRES_PASSWORD=
       - POSTGRES_HOST_AUTH_METHOD=trust
     ports:

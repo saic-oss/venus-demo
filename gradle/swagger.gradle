@@ -8,8 +8,8 @@ openApiGenerate {
     generatorName = "spring"
     inputSpec = "$rootDir/src/main/resources/swagger/api.yml".toString()
     outputDir = "$buildDir/openapi".toString()
-    apiPackage = "com.saic.Venus.web.api"
-    modelPackage = "com.saic.Venus.web.api.model"
+    apiPackage = "com.saic.venus.web.api"
+    modelPackage = "com.saic.venus.web.api.model"
     apiFilesConstrainedTo = [""]
     modelFilesConstrainedTo = [""]
     supportingFilesConstrainedTo = ["ApiUtil.java"]

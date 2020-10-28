@@ -1,8 +1,8 @@
-package com.saic.Venus.security;
+package com.saic.venus.security;
 
-import com.saic.Venus.ExampleProjectApp;
-import com.saic.Venus.domain.User;
-import com.saic.Venus.repository.UserRepository;
+import com.saic.venus.ExampleProjectApp;
+import com.saic.venus.domain.User;
+import com.saic.venus.repository.UserRepository;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.BeforeEach;

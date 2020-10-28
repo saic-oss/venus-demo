@@ -1,6 +1,6 @@
-package com.saic.Venus.cucumber;
+package com.saic.venus.cucumber;
 
-import com.saic.Venus.ExampleProjectApp;
+import com.saic.venus.ExampleProjectApp;
 import io.cucumber.java.Before;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
