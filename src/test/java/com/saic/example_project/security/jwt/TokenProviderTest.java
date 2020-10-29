@@ -1,6 +1,6 @@
-package com.saic.Venus.security.jwt;
+package com.saic.venus.configsecurity.jwt;
 
-import com.saic.Venus.security.AuthoritiesConstants;
+import com.saic.venus.configsecurity.AuthoritiesConstants;
 
 import java.security.Key;
 import java.util.*;

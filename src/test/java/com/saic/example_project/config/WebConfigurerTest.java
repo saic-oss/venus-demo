@@ -1,4 +1,4 @@
-package com.saic.Venus.config;
+package com.saic.venus.configconfig;
 
 import io.github.jhipster.config.JHipsterConstants;
 import io.github.jhipster.config.JHipsterProperties;

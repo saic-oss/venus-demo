@@ -17,7 +17,7 @@ logging:
   level:
     ROOT: DEBUG
     io.github.jhipster: DEBUG
-    com.saic.Venus: DEBUG
+    com.saic.venus: DEBUG
 
 spring:
   profiles:
@@ -37,8 +37,8 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:h2:file:./build/h2db/db/Venus;DB_CLOSE_DELAY=-1
-    username: Venus
+    url: jdbc:h2:file:./build/h2db/db/venus;DB_CLOSE_DELAY=-1
+    username: venus
     password:
     hikari:
       poolName: Hikari

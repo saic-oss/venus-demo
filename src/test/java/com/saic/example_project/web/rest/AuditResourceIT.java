@@ -1,9 +1,9 @@
-package com.saic.Venus.web.rest;
+package com.saic.venus.configweb.rest;
 
-import com.saic.Venus.ExampleProjectApp;
-import com.saic.Venus.domain.PersistentAuditEvent;
-import com.saic.Venus.repository.PersistenceAuditEventRepository;
-import com.saic.Venus.security.AuthoritiesConstants;
+import com.saic.venus.configExampleProjectApp;
+import com.saic.venus.configdomain.PersistentAuditEvent;
+import com.saic.venus.configrepository.PersistenceAuditEventRepository;
+import com.saic.venus.configsecurity.AuthoritiesConstants;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
