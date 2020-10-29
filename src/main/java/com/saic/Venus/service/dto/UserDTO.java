@@ -1,6 +1,6 @@
 package com.saic.Venus.service.dto;
 
-import com.saic.Venus.config.Constants;
+import com.saic.venus.config.Constants;
 
 import com.saic.Venus.domain.Authority;
 import com.saic.Venus.domain.User;

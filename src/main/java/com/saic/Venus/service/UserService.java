@@ -1,6 +1,6 @@
 package com.saic.Venus.service;
 
-import com.saic.Venus.config.Constants;
+import com.saic.venus.config.Constants;
 import com.saic.Venus.domain.Authority;
 import com.saic.Venus.domain.User;
 import com.saic.Venus.repository.AuthorityRepository;

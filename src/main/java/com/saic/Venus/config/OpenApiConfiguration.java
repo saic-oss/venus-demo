@@ -1,4 +1,4 @@
-package com.saic.Venus.config;
+package com.saic.venus.config;
 
 import com.google.common.base.Predicates;
 import io.github.jhipster.config.JHipsterConstants;

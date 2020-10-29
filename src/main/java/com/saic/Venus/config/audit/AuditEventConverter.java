@@ -1,4 +1,4 @@
-package com.saic.Venus.config.audit;
+package com.saic.venus.config.audit;
 
 import com.saic.Venus.domain.PersistentAuditEvent;
 

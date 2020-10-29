@@ -1,6 +1,6 @@
 package com.saic.Venus.web.rest;
 
-import com.saic.Venus.config.Constants;
+import com.saic.venus.config.Constants;
 import com.saic.Venus.domain.User;
 import com.saic.Venus.repository.UserRepository;
 import com.saic.Venus.security.AuthoritiesConstants;
