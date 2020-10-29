@@ -1,4 +1,4 @@
-# venus
+# Venus
 
 This application was generated using JHipster 6.10.3, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.10.3](https://www.jhipster.tech/documentation-archive/v6.10.3).
 
@@ -12,7 +12,7 @@ Before you can build this project, you must install and configure the following 
 After installing Node, you should be able to run the following command to install development tools.
 You will only need to run this command when dependencies change in [package.json](package.json).
 
-```sh
+```
 npm install
 ```
 
@@ -21,7 +21,7 @@ We use npm scripts and [Webpack][] as our build system.
 Run the following commands in two separate terminals to create a blissful development experience where your browser
 auto-refreshes when files change on your hard drive.
 
-```sh
+```
 
 
 ./gradlew -x webpack
@@ -57,26 +57,26 @@ Note: [Workbox](https://developers.google.com/web/tools/workbox/) powers JHipste
 
 For example, to add [Leaflet][] library as a runtime dependency of your application, you would run following command:
 
-```sh
+```
 npm install --save --save-exact leaflet
 ```
 
 To benefit from TypeScript type definitions from [DefinitelyTyped][] repository in development, you would run following command:
 
-```sh
+```
 npm install --save-dev --save-exact @types/leaflet
 ```
 
 Then you would import the JS and CSS files specified in library's installation instructions so that [Webpack][] knows about them:
 Edit [src/main/webapp/app/vendor.ts](src/main/webapp/app/vendor.ts) file:
 
-```sh
+```
 import 'leaflet/dist/leaflet.js';
 ```
 
 Edit [src/main/webapp/content/scss/vendor.scss](src/main/webapp/content/scss/vendor.scss) file:
 
-```sh
+```
 @import '~leaflet/dist/leaflet.css';
 ```
 
@@ -90,13 +90,13 @@ You can also use [Angular CLI][] to generate some custom client code.
 
 For example, the following command:
 
-```sh
+```
 ng generate component my-component
 ```
 
 will generate few files:
 
-```sh
+```
 create src/main/webapp/app/my-component/my-component.component.html
 create src/main/webapp/app/my-component/my-component.component.ts
 update src/main/webapp/app/app.module.ts
@@ -120,9 +120,9 @@ Refer to [Doing API-First development][] for more details.
 
 ### Packaging as jar
 
-To build the final jar and optimize the venus application for production, run:
+To build the final jar and optimize the Venus application for production, run:
 
-```sh
+```
 
 
 ./gradlew -Pprod clean bootJar
@@ -132,7 +132,7 @@ To build the final jar and optimize the venus application for production, run:
 This will concatenate and minify the client CSS and JavaScript files. It will also modify `index.html` so it references these new files.
 To ensure everything worked, run:
 
-```sh
+```
 
 
 java -jar build/libs/*.jar
@@ -147,7 +147,7 @@ Refer to [Using JHipster in production][] for more details.
 
 To package your application as a war in order to deploy it to an application server, run:
 
-```sh
+```
 
 
 ./gradlew -Pprod -Pwar clean bootWar
@@ -158,7 +158,7 @@ To package your application as a war in order to deploy it to an application ser
 
 To launch your application's tests, run:
 
-```sh
+```
 ./gradlew test integrationTest jacocoTestReport
 ```
 
@@ -166,7 +166,7 @@ To launch your application's tests, run:
 
 Unit tests are run by [Jest][] and written with [Jasmine][]. They're located in [src/test/javascript/](src/test/javascript/) and can be run with:
 
-```sh
+```
 npm test
 ```
 
@@ -176,7 +176,7 @@ For more information, refer to the [Running tests page][].
 
 Sonar is used to analyse code quality. You can start a local Sonar server (accessible on http://localhost:9001) with:
 
-```sh
+```
 docker-compose -f src/main/docker/sonar.yml up -d
 ```
 
@@ -184,7 +184,7 @@ You can run a Sonar analysis with using the [sonar-scanner](https://docs.sonarqu
 
 Then, run a Sonar analysis:
 
-```sh
+```
 ./gradlew -Pprod clean check jacocoTestReport sonarqube
 ```
 
@@ -196,26 +196,26 @@ You can use Docker to improve your JHipster development experience. A number of 
 
 For example, to start a postgresql database in a docker container, run:
 
-```sh
+```
 docker-compose -f src/main/docker/postgresql.yml up -d
 ```
 
 To stop it and remove the container, run:
 
-```sh
+```
 docker-compose -f src/main/docker/postgresql.yml down
 ```
 
 You can also fully dockerize your application and all the services that it depends on.
 To achieve this, first build a docker image of your app by running:
 
-```sh
+```
 ./gradlew bootJar -Pprod jibDockerBuild
 ```
 
 Then run:
 
-```sh
+```
 docker-compose -f src/main/docker/app.yml up -d
 ```
 
@@ -246,3 +246,18 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 [openapi-generator]: https://openapi-generator.tech
 [swagger-editor]: https://editor.swagger.io
 [doing api-first development]: https://www.jhipster.tech/documentation-archive/v6.10.3/doing-api-first-development/
+
+## Files
+
+| File                        | Description                                                                                     |
+| --------------------------- | ----------------------------------------------------------------------------------------------- |
+| \.github/CODEOWNERS         | Used to automatically choose PR reviewers based on who owns the code                            |
+| \.github/stale\.yaml        | Config file for the Stale plugin                                                                |
+| \.editorconfig              | Shared code style config file                                                                   |
+| \.gitignore                 | Git ignore file                                                                                 |
+| \.pre\-commit\-config\.yaml | Config file for pre\-commit hooks\. Delete/comment out hooks you don't need                     |
+| \.prettierignore            | Prettier ignore file                                                                            |
+| \.remarkrc                  | Config file for remark\-lint which Codacy uses                                                  |
+| LICENSE                     | Project license \- Default is Apache 2\.0\. Get approval if you want to use a different license |
+| README\.md                  | Main README file that all repos need to have                                                    |
+| Taskfile\.yml               | Config file for Go\-Task\. We prefer Go\-Task over Make                                         |

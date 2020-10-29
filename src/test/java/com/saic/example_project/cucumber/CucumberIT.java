@@ -1,4 +1,4 @@
-package com.saic.venus.configcucumber;
+package com.saic.Venus.cucumber;
 
 import org.junit.runner.RunWith;
 

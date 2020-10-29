@@ -1,8 +1,8 @@
-package com.saic.venus.configservice;
+package com.saic.Venus.service;
 
-import com.saic.venus.configdomain.PersistentAuditEvent;
-import com.saic.venus.configrepository.PersistenceAuditEventRepository;
-import com.saic.venus.configExampleProjectApp;
+import com.saic.Venus.domain.PersistentAuditEvent;
+import com.saic.Venus.repository.PersistenceAuditEventRepository;
+import com.saic.Venus.ExampleProjectApp;
 import io.github.jhipster.config.JHipsterProperties;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

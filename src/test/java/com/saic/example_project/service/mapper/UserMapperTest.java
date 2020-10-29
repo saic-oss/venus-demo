@@ -1,7 +1,7 @@
-package com.saic.venus.configservice.mapper;
+package com.saic.Venus.service.mapper;
 
-import com.saic.venus.configdomain.User;
-import com.saic.venus.configservice.dto.UserDTO;
+import com.saic.Venus.domain.User;
+import com.saic.Venus.service.dto.UserDTO;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,6 +1,6 @@
-package com.saic.venus.configweb.rest.errors;
+package com.saic.Venus.web.rest.errors;
 
-import com.saic.venus.configExampleProjectApp;
+import com.saic.Venus.ExampleProjectApp;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,13 +1,13 @@
-package com.saic.venus.configweb.rest;
+package com.saic.Venus.web.rest;
 
-import com.saic.venus.configExampleProjectApp;
-import com.saic.venus.configdomain.Authority;
-import com.saic.venus.configdomain.User;
-import com.saic.venus.configrepository.UserRepository;
-import com.saic.venus.configsecurity.AuthoritiesConstants;
-import com.saic.venus.configservice.dto.UserDTO;
-import com.saic.venus.configservice.mapper.UserMapper;
-import com.saic.venus.configweb.rest.vm.ManagedUserVM;
+import com.saic.Venus.ExampleProjectApp;
+import com.saic.Venus.domain.Authority;
+import com.saic.Venus.domain.User;
+import com.saic.Venus.repository.UserRepository;
+import com.saic.Venus.security.AuthoritiesConstants;
+import com.saic.Venus.service.dto.UserDTO;
+import com.saic.Venus.service.mapper.UserMapper;
+import com.saic.Venus.web.rest.vm.ManagedUserVM;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
