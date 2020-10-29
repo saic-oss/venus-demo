@@ -1,4 +1,4 @@
-package com.saic.venus.config;
+package com.saic.venus.configconfig;
 
 import com.google.common.base.Predicates;
 import io.github.jhipster.config.JHipsterConstants;
@@ -29,7 +29,7 @@ public class OpenApiConfiguration {
     @Bean
     public SwaggerCustomizer noApiFirstCustomizer() {
         return docket -> docket.select()
-            .apis(Predicates.not(RequestHandlerSelectors.basePackage("com.saic.Venus.web.api")));
+            .apis(Predicates.not(RequestHandlerSelectors.basePackage("com.saic.venus.configweb.api")));
     }
 
     @Bean
@@ -63,7 +63,7 @@ public class OpenApiConfiguration {
             .genericModelSubstitutes(ResponseEntity.class)
             .ignoredParameterTypes(Pageable.class)
             .select()
-            .apis(RequestHandlerSelectors.basePackage("com.saic.Venus.web.api"))
+            .apis(RequestHandlerSelectors.basePackage("com.saic.venus.configweb.api"))
             .paths(regex(properties.getDefaultIncludePattern()))
             .build();
     }

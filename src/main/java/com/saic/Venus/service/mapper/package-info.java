@@ -1,4 +1,4 @@
 /**
  * MapStruct mappers for mapping domain objects and Data Transfer Objects.
  */
-package com.saic.Venus.service.mapper;
+package com.saic.venus.configservice.mapper;

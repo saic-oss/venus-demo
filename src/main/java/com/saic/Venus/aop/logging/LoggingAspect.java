@@ -1,4 +1,4 @@
-package com.saic.venus.aop.logging;
+package com.saic.venus.configaop.logging;
 
 import io.github.jhipster.config.JHipsterConstants;
 
@@ -42,9 +42,9 @@ public class LoggingAspect {
     /**
      * Pointcut that matches all Spring beans in the application's main packages.
      */
-    @Pointcut("within(com.saic.Venus.repository..*)"+
-        " || within(com.saic.Venus.service..*)"+
-        " || within(com.saic.Venus.web.rest..*)")
+    @Pointcut("within(com.saic.venus.configrepository..*)"+
+        " || within(com.saic.venus.configservice..*)"+
+        " || within(com.saic.venus.configweb.rest..*)")
     public void applicationPackagePointcut() {
         // Method is empty as this is just a Pointcut, the implementations are in the advices.
     }

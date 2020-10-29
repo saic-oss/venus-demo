@@ -1,4 +1,4 @@
 /**
  * Audit specific code.
  */
-package com.saic.venus.config.audit;
+package com.saic.venus.configconfig.audit;

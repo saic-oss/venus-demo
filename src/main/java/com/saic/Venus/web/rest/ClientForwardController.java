@@ -1,4 +1,4 @@
-package com.saic.Venus.web.rest;
+package com.saic.venus.configweb.rest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

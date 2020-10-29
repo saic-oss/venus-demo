@@ -1,8 +1,8 @@
-package com.saic.Venus.web.rest;
+package com.saic.venus.configweb.rest;
 
-import com.saic.Venus.security.jwt.JWTFilter;
-import com.saic.Venus.security.jwt.TokenProvider;
-import com.saic.Venus.web.rest.vm.LoginVM;
+import com.saic.venus.configsecurity.jwt.JWTFilter;
+import com.saic.venus.configsecurity.jwt.TokenProvider;
+import com.saic.venus.configweb.rest.vm.LoginVM;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

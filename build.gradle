@@ -86,7 +86,7 @@ eclipse {
 defaultTasks "bootRun"
 
 springBoot {
-    mainClassName = "com.saic.venus.ExampleProjectApp"
+    mainClassName = "com.saic.venus.configExampleProjectApp"
 }
 
 test {
@@ -176,7 +176,7 @@ liquibase {
             username "venus"
             password ""
             changeLogFile project.ext.diffChangelogFile
-            referenceUrl "hibernate:spring:com.saic.venus.domain?dialect=org.hibernate.dialect.H2Dialect&hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy"
+            referenceUrl "hibernate:spring:com.saic.venus.configdomain?dialect=org.hibernate.dialect.H2Dialect&hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy"
             defaultSchemaName ""
             logLevel "debug"
             classpath "$buildDir/classes/java/main"

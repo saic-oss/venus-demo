@@ -1,4 +1,4 @@
 /**
  * JPA domain objects.
  */
-package com.saic.Venus.domain;
+package com.saic.venus.configdomain;

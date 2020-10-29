@@ -1,4 +1,4 @@
-package com.saic.venus.config;
+package com.saic.venus.configconfig;
 
 /**
  * Application constants.

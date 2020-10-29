@@ -1,4 +1,4 @@
-package com.saic.Venus.web.rest.errors;
+package com.saic.venus.configweb.rest.errors;
 
 public class LoginAlreadyUsedException extends BadRequestAlertException {
 

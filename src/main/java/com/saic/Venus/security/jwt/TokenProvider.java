@@ -1,4 +1,4 @@
-package com.saic.Venus.security.jwt;
+package com.saic.venus.configsecurity.jwt;
 
 import java.nio.charset.StandardCharsets;
 import java.security.Key;

@@ -1,7 +1,7 @@
-package com.saic.venus.config;
+package com.saic.venus.configconfig;
 
-import com.saic.Venus.security.*;
-import com.saic.Venus.security.jwt.*;
+import com.saic.venus.configsecurity.*;
+import com.saic.venus.configsecurity.jwt.*;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;

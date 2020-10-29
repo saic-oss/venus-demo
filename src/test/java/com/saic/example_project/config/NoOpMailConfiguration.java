@@ -1,6 +1,6 @@
-package com.saic.venus.config;
+package com.saic.venus.configconfig;
 
-import com.saic.venus.service.MailService;
+import com.saic.venus.configservice.MailService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

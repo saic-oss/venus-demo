@@ -1,4 +1,4 @@
-package com.saic.Venus.service;
+package com.saic.venus.configservice;
 
 public class EmailAlreadyUsedException extends RuntimeException {
 

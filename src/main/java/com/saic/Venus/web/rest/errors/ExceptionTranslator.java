@@ -1,4 +1,4 @@
-package com.saic.Venus.web.rest.errors;
+package com.saic.venus.configweb.rest.errors;
 
 import io.github.jhipster.config.JHipsterConstants;
 import io.github.jhipster.web.util.HeaderUtil;
@@ -108,19 +108,19 @@ public class ExceptionTranslator implements ProblemHandling, SecurityAdviceTrait
     }
 
     @ExceptionHandler
-    public ResponseEntity<Problem> handleEmailAlreadyUsedException(com.saic.Venus.service.EmailAlreadyUsedException ex, NativeWebRequest request) {
+    public ResponseEntity<Problem> handleEmailAlreadyUsedException(com.saic.venus.configservice.EmailAlreadyUsedException ex, NativeWebRequest request) {
         EmailAlreadyUsedException problem = new EmailAlreadyUsedException();
         return create(problem, request, HeaderUtil.createFailureAlert(applicationName,  false, problem.getEntityName(), problem.getErrorKey(), problem.getMessage()));
     }
 
     @ExceptionHandler
-    public ResponseEntity<Problem> handleUsernameAlreadyUsedException(com.saic.Venus.service.UsernameAlreadyUsedException ex, NativeWebRequest request) {
+    public ResponseEntity<Problem> handleUsernameAlreadyUsedException(com.saic.venus.configservice.UsernameAlreadyUsedException ex, NativeWebRequest request) {
         LoginAlreadyUsedException problem = new LoginAlreadyUsedException();
         return create(problem, request, HeaderUtil.createFailureAlert(applicationName,  false, problem.getEntityName(), problem.getErrorKey(), problem.getMessage()));
     }
 
     @ExceptionHandler
-    public ResponseEntity<Problem> handleInvalidPasswordException(com.saic.Venus.service.InvalidPasswordException ex, NativeWebRequest request) {
+    public ResponseEntity<Problem> handleInvalidPasswordException(com.saic.venus.configservice.InvalidPasswordException ex, NativeWebRequest request) {
         return create(new InvalidPasswordException(), request);
     }
 

@@ -1,4 +1,4 @@
-package com.saic.Venus.security;
+package com.saic.venus.configsecurity;
 
 /**
  * Constants for Spring Security authorities.

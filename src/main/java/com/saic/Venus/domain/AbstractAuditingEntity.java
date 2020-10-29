@@ -1,4 +1,4 @@
-package com.saic.Venus.domain;
+package com.saic.venus.configdomain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.CreatedBy;

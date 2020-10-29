@@ -1,4 +1,4 @@
-package com.saic.Venus.security;
+package com.saic.venus.configsecurity;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;

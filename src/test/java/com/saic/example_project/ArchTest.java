@@ -18,11 +18,11 @@ class ArchTest {
 
         noClasses()
             .that()
-                .resideInAnyPackage("com.saic.venus.service..")
+                .resideInAnyPackage("com.saic.venus.configservice..")
             .or()
-                .resideInAnyPackage("com.saic.venus.repository..")
+                .resideInAnyPackage("com.saic.venus.configrepository..")
             .should().dependOnClassesThat()
-                .resideInAnyPackage("..com.saic.venus.web..")
+                .resideInAnyPackage("..com.saic.venus.configweb..")
         .because("Services and repositories should not depend on web layer")
         .check(importedClasses);
     }

@@ -1,4 +1,4 @@
-package com.saic.venus.web.rest;
+package com.saic.venus.configweb.rest;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

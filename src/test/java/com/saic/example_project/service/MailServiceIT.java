@@ -1,9 +1,9 @@
-package com.saic.venus.service;
+package com.saic.venus.configservice;
 
-import com.saic.venus.config.Constants;
+import com.saic.venus.configconfig.Constants;
 
-import com.saic.venus.ExampleProjectApp;
-import com.saic.venus.domain.User;
+import com.saic.venus.configExampleProjectApp;
+import com.saic.venus.configdomain.User;
 import io.github.jhipster.config.JHipsterProperties;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

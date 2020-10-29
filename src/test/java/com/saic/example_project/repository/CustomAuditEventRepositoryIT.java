@@ -1,10 +1,10 @@
-package com.saic.venus.repository;
+package com.saic.venus.configrepository;
 
-import com.saic.venus.ExampleProjectApp;
+import com.saic.venus.configExampleProjectApp;
 
-import com.saic.venus.config.Constants;
-import com.saic.venus.config.audit.AuditEventConverter;
-import com.saic.venus.domain.PersistentAuditEvent;
+import com.saic.venus.configconfig.Constants;
+import com.saic.venus.configconfig.audit.AuditEventConverter;
+import com.saic.venus.configdomain.PersistentAuditEvent;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static com.saic.venus.repository.CustomAuditEventRepository.EVENT_DATA_COLUMN_MAX_LENGTH;
+import static com.saic.venus.configrepository.CustomAuditEventRepository.EVENT_DATA_COLUMN_MAX_LENGTH;
 
 /**
  * Integration tests for {@link CustomAuditEventRepository}.

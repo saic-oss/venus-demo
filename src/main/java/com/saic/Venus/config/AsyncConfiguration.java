@@ -1,4 +1,4 @@
-package com.saic.venus.config;
+package com.saic.venus.configconfig;
 
 import io.github.jhipster.async.ExceptionHandlingAsyncTaskExecutor;
 import org.slf4j.Logger;

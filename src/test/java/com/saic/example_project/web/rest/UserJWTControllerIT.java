@@ -1,9 +1,9 @@
-package com.saic.venus.web.rest;
+package com.saic.venus.configweb.rest;
 
-import com.saic.venus.ExampleProjectApp;
-import com.saic.venus.domain.User;
-import com.saic.venus.repository.UserRepository;
-import com.saic.venus.web.rest.vm.LoginVM;
+import com.saic.venus.configExampleProjectApp;
+import com.saic.venus.configdomain.User;
+import com.saic.venus.configrepository.UserRepository;
+import com.saic.venus.configweb.rest.vm.LoginVM;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;

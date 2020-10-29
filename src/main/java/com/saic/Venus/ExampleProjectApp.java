@@ -1,6 +1,6 @@
 package com.saic.venus;
 
-import com.saic.venus.config.ApplicationProperties;
+import com.saic.venus.configconfig.ApplicationProperties;
 
 import io.github.jhipster.config.DefaultProfileUtil;
 import io.github.jhipster.config.JHipsterConstants;

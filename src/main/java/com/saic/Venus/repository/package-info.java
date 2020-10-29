@@ -1,4 +1,4 @@
 /**
  * Spring Data JPA repositories.
  */
-package com.saic.Venus.repository;
+package com.saic.venus.configrepository;

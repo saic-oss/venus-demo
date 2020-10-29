@@ -1,6 +1,6 @@
-package com.saic.Venus.web.rest;
+package com.saic.venus.configweb.rest;
 
-import com.saic.Venus.service.AuditEventService;
+import com.saic.venus.configservice.AuditEventService;
 
 import io.github.jhipster.web.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;

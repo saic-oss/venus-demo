@@ -1,7 +1,7 @@
-package com.saic.Venus.security;
+package com.saic.venus.configsecurity;
 
-import com.saic.Venus.domain.User;
-import com.saic.Venus.repository.UserRepository;
+import com.saic.venus.configdomain.User;
+import com.saic.venus.configrepository.UserRepository;
 import org.hibernate.validator.internal.constraintvalidators.hv.EmailValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
