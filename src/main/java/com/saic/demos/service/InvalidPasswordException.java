@@ -1,11 +1,9 @@
 package com.saic.demos.service;
 
 public class InvalidPasswordException extends RuntimeException {
+  private static final long serialVersionUID = 1L;
 
-    private static final long serialVersionUID = 1L;
-
-    public InvalidPasswordException() {
-        super("Incorrect password");
-    }
-
+  public InvalidPasswordException() {
+    super("Incorrect password");
+  }
 }

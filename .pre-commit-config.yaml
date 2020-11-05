@@ -38,3 +38,7 @@ repos:
     rev: 2.1.2
     hooks:
       - id: prettier
+  - repo: https://github.com/RothAndrew/prettier-java-pre-commit-hook
+    rev: 1.0.0
+    hooks:
+      - id: prettier-java
