@@ -1,6 +1,6 @@
 {
-  "name": "ExampleProject",
-  "short_name": "ExampleProject",
+  "name": "Venusdemo",
+  "short_name": "Venusdemo",
   "icons": [
     {
       "src": "./content/images/jhipster_family_member_0_head-192.png",

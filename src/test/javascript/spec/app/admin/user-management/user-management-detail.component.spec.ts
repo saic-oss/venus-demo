@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 
 import { Authority } from 'app/shared/constants/authority.constants';
-import { ExampleProjectTestModule } from '../../../test.module';
+import { VenusdemoTestModule } from '../../../test.module';
 import { UserManagementDetailComponent } from 'app/admin/user-management/user-management-detail.component';
 import { User } from 'app/core/user/user.model';
 
@@ -17,7 +17,7 @@ describe('Component Tests', () => {
 
     beforeEach(async(() => {
       TestBed.configureTestingModule({
-        imports: [ExampleProjectTestModule],
+        imports: [VenusdemoTestModule],
         declarations: [UserManagementDetailComponent],
         providers: [
           {

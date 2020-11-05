@@ -59,7 +59,7 @@ management:
 
 spring:
   application:
-    name: Venus
+    name: venusdemo
   profiles:
     # The commented value for `active` can be replaced with valid Spring profiles to load.
     # Otherwise, it will be filled in by gradle when building the JAR file
@@ -97,13 +97,13 @@ spring:
     allow-bean-definition-overriding: true
   task:
     execution:
-      thread-name-prefix: example-project-task-
+      thread-name-prefix: venusdemo-task-
       pool:
         core-size: 2
         max-size: 50
         queue-capacity: 10000
     scheduling:
-      thread-name-prefix: example-project-scheduling-
+      thread-name-prefix: venusdemo-scheduling-
       pool:
         size: 2
   thymeleaf:
@@ -131,7 +131,7 @@ info:
 
 jhipster:
   clientApp:
-    name: 'exampleProjectApp'
+    name: 'venusdemoApp'
   # By default CORS is disabled. Uncomment to enable.
   # cors:
   #     allowed-origins: "*"
@@ -141,11 +141,11 @@ jhipster:
   #     allow-credentials: true
   #     max-age: 1800
   mail:
-    from: Venus@localhost
+    from: venusdemo@localhost
   swagger:
     default-include-pattern: /api/.*
-    title: Venus API
-    description: Venus API documentation
+    title: venusdemo API
+    description: venusdemo API documentation
     version: 0.0.1
     terms-of-service-url:
     contact-name:

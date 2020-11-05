@@ -18,10 +18,10 @@ spring:
     # Uncomment the following line to enable tests against production database type rather than H2, using Testcontainers
     #active: testcontainers
   application:
-    name: Venus
+    name: venusdemo
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:h2:mem:Venus;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:mem:venusdemo;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     name:
     username:
     password:
@@ -57,13 +57,13 @@ spring:
     basename: i18n/messages
   task:
     execution:
-      thread-name-prefix: example-project-task-
+      thread-name-prefix: venusdemo-task-
       pool:
         core-size: 1
         max-size: 50
         queue-capacity: 10000
     scheduling:
-      thread-name-prefix: example-project-scheduling-
+      thread-name-prefix: venusdemo-scheduling-
       pool:
         size: 1
   thymeleaf:
@@ -81,7 +81,7 @@ server:
 
 jhipster:
   clientApp:
-    name: 'exampleProjectApp'
+    name: 'venusdemoApp'
   logging:
     # To test json console appender
     use-json-format: false
@@ -97,7 +97,7 @@ jhipster:
     authentication:
       jwt:
         # This token must be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line)
-        base64-secret: NWRmZjJiOWE3MzZmMTcwODQ2N2FiMThhZTc2NmYwNGFkMzgyMDMwYmZjOTdjZGRjYjFjNjgwZThlMTFmZGExMzEwMDFjMTU2NTUwNGExNjYyNWI3NWZhNGVjYzM2OTM5ODc5YWM0ZjU1M2IyMzZmZTA0MTdjNTc2YjA3NDRjMTE=
+        base64-secret: ZGM4NDczNmJlMGY2YjIzMGNlMWUyYzcyYjA5YjFiODYwZmUzN2U4YmQ1ODU2MmM4YjZmMmJiZWY5YmQ3ODI0MWU0ZGJiZDAxODEzZmExOWFmZTE4YzVjNzJjOTcwMTcwZDg1ZGM0ZjFlZjdiNTVhNTY2N2I0MzM5OTViMTMwMmY=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
   metrics:

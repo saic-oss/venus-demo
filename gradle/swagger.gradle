@@ -8,12 +8,12 @@ openApiGenerate {
     generatorName = "spring"
     inputSpec = "$rootDir/src/main/resources/swagger/api.yml".toString()
     outputDir = "$buildDir/openapi".toString()
-    apiPackage = "com.saic.Venus.web.api"
-    modelPackage = "com.saic.Venus.web.api.model"
+    apiPackage = "com.saic.demos.venusdemo.web.api"
+    modelPackage = "com.saic.demos.venusdemo.web.api.model"
     apiFilesConstrainedTo = [""]
     modelFilesConstrainedTo = [""]
     supportingFilesConstrainedTo = ["ApiUtil.java"]
-    configOptions = [delegatePattern: "true", title: "example-project"]
+    configOptions = [delegatePattern: "true", title: "venusdemo"]
     validateSpec = true
     importMappings = [Problem:"org.zalando.problem.Problem"]
 }

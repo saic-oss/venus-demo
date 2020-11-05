@@ -29,7 +29,7 @@ plugins {
     //jhipster-needle-gradle-plugins - JHipster will add additional gradle plugins here
 }
 
-group = "com.saic.Venus"
+group = "com.saic.demos.venusdemo"
 version = "0.0.1-SNAPSHOT"
 
 description = ""
@@ -86,7 +86,7 @@ eclipse {
 defaultTasks "bootRun"
 
 springBoot {
-    mainClassName = "com.saic.Venus.ExampleProjectApp"
+    mainClassName = "com.saic.demos.venusdemo.VenusdemoApp"
 }
 
 test {
@@ -162,8 +162,8 @@ liquibase {
     activities {
         main {
             driver "org.h2.Driver"
-            url "jdbc:h2:file:./build/h2db/db/Venus"
-            username "Venus"
+            url "jdbc:h2:file:./build/h2db/db/venusdemo"
+            username "venusdemo"
             password ""
             changeLogFile "src/main/resources/config/liquibase/master.xml"
             defaultSchemaName ""
@@ -172,11 +172,11 @@ liquibase {
         }
         diffLog {
             driver "org.h2.Driver"
-            url "jdbc:h2:file:./build/h2db/db/Venus"
-            username "Venus"
+            url "jdbc:h2:file:./build/h2db/db/venusdemo"
+            username "venusdemo"
             password ""
             changeLogFile project.ext.diffChangelogFile
-            referenceUrl "hibernate:spring:com.saic.Venus.domain?dialect=org.hibernate.dialect.H2Dialect&hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy"
+            referenceUrl "hibernate:spring:com.saic.demos.venusdemo.domain?dialect=org.hibernate.dialect.H2Dialect&hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy"
             defaultSchemaName ""
             logLevel "debug"
             classpath "$buildDir/classes/java/main"

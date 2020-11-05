@@ -17,7 +17,7 @@ logging:
   level:
     ROOT: DEBUG
     io.github.jhipster: DEBUG
-    com.saic.Venus: DEBUG
+    com.saic.demos.venusdemo: DEBUG
 
 spring:
   profiles:
@@ -37,8 +37,8 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:h2:file:./build/h2db/db/Venus;DB_CLOSE_DELAY=-1
-    username: Venus
+    url: jdbc:h2:file:./build/h2db/db/venusdemo;DB_CLOSE_DELAY=-1
+    username: venusdemo
     password:
     hikari:
       poolName: Hikari
@@ -88,7 +88,7 @@ jhipster:
     authentication:
       jwt:
         # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
-        base64-secret: NWRmZjJiOWE3MzZmMTcwODQ2N2FiMThhZTc2NmYwNGFkMzgyMDMwYmZjOTdjZGRjYjFjNjgwZThlMTFmZGExMzEwMDFjMTU2NTUwNGExNjYyNWI3NWZhNGVjYzM2OTM5ODc5YWM0ZjU1M2IyMzZmZTA0MTdjNTc2YjA3NDRjMTE=
+        base64-secret: ZGM4NDczNmJlMGY2YjIzMGNlMWUyYzcyYjA5YjFiODYwZmUzN2U4YmQ1ODU2MmM4YjZmMmJiZWY5YmQ3ODI0MWU0ZGJiZDAxODEzZmExOWFmZTE4YzVjNzJjOTcwMTcwZDg1ZGM0ZjFlZjdiNTVhNTY2N2I0MzM5OTViMTMwMmY=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 2592000

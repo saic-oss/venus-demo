@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "example-project": {
+    "venusdemo": {
       "root": "",
       "sourceRoot": "src/main/webapp",
       "projectType": "application",
@@ -29,7 +29,7 @@
       "architect": {}
     }
   },
-  "defaultProject": "example-project",
+  "defaultProject": "venusdemo",
   "cli": {
     "packageManager": "npm"
   }

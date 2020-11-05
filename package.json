@@ -1,7 +1,7 @@
 {
-  "name": "example-project",
+  "name": "venusdemo",
   "version": "0.0.1-SNAPSHOT",
-  "description": "Description for Venus",
+  "description": "Description for venusdemo",
   "private": true,
   "license": "UNLICENSED",
   "cacheDirectories": [

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { ExampleProjectSharedModule } from 'app/shared/shared.module';
+import { VenusdemoSharedModule } from 'app/shared/shared.module';
 import { HOME_ROUTE } from './home.route';
 import { HomeComponent } from './home.component';
 
 @NgModule({
-  imports: [ExampleProjectSharedModule, RouterModule.forChild([HOME_ROUTE])],
+  imports: [VenusdemoSharedModule, RouterModule.forChild([HOME_ROUTE])],
   declarations: [HomeComponent],
 })
-export class ExampleProjectHomeModule {}
+export class VenusdemoHomeModule {}

@@ -1,4 +1,4 @@
-# Venus
+# venusdemo
 
 This application was generated using JHipster 6.10.3, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.10.3](https://www.jhipster.tech/documentation-archive/v6.10.3).
 
@@ -120,7 +120,7 @@ Refer to [Doing API-First development][] for more details.
 
 ### Packaging as jar
 
-To build the final jar and optimize the Venus application for production, run:
+To build the final jar and optimize the venusdemo application for production, run:
 
 ```
 
@@ -246,18 +246,3 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 [openapi-generator]: https://openapi-generator.tech
 [swagger-editor]: https://editor.swagger.io
 [doing api-first development]: https://www.jhipster.tech/documentation-archive/v6.10.3/doing-api-first-development/
-
-## Files
-
-| File                        | Description                                                                                     |
-| --------------------------- | ----------------------------------------------------------------------------------------------- |
-| \.github/CODEOWNERS         | Used to automatically choose PR reviewers based on who owns the code                            |
-| \.github/stale\.yaml        | Config file for the Stale plugin                                                                |
-| \.editorconfig              | Shared code style config file                                                                   |
-| \.gitignore                 | Git ignore file                                                                                 |
-| \.pre\-commit\-config\.yaml | Config file for pre\-commit hooks\. Delete/comment out hooks you don't need                     |
-| \.prettierignore            | Prettier ignore file                                                                            |
-| \.remarkrc                  | Config file for remark\-lint which Codacy uses                                                  |
-| LICENSE                     | Project license \- Default is Apache 2\.0\. Get approval if you want to use a different license |
-| README\.md                  | Main README file that all repos need to have                                                    |
-| Taskfile\.yml               | Config file for Go\-Task\. We prefer Go\-Task over Make                                         |

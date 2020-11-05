@@ -8,4 +8,4 @@ import { RouterModule } from '@angular/router';
     ]),
   ],
 })
-export class ExampleProjectEntityModule {}
+export class VenusdemoEntityModule {}

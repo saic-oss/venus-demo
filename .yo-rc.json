@@ -1,13 +1,13 @@
 {
   "generator-jhipster": {
     "promptValues": {
-      "packageName": "com.saic.venus"
+      "packageName": "com.saic.demos.venusdemo"
     },
     "jhipsterVersion": "6.10.3",
     "applicationType": "monolith",
-    "baseName": "venus",
-    "packageName": "com.saic.venus",
-    "packageFolder": "com/saic/venus",
+    "baseName": "venusdemo",
+    "packageName": "com.saic.demos.venusdemo",
+    "packageFolder": "com/saic/demos/venusdemo",
     "serverPort": "8080",
     "authenticationType": "jwt",
     "cacheProvider": "ehcache",
@@ -21,14 +21,14 @@
     "serviceDiscoveryType": false,
     "buildTool": "gradle",
     "enableSwaggerCodegen": true,
-    "jwtSecretKey": "NWRmZjJiOWE3MzZmMTcwODQ2N2FiMThhZTc2NmYwNGFkMzgyMDMwYmZjOTdjZGRjYjFjNjgwZThlMTFmZGExMzEwMDFjMTU2NTUwNGExNjYyNWI3NWZhNGVjYzM2OTM5ODc5YWM0ZjU1M2IyMzZmZTA0MTdjNTc2YjA3NDRjMTE=",
+    "jwtSecretKey": "ZGM4NDczNmJlMGY2YjIzMGNlMWUyYzcyYjA5YjFiODYwZmUzN2U4YmQ1ODU2MmM4YjZmMmJiZWY5YmQ3ODI0MWU0ZGJiZDAxODEzZmExOWFmZTE4YzVjNzJjOTcwMTcwZDg1ZGM0ZjFlZjdiNTVhNTY2N2I0MzM5OTViMTMwMmY=",
     "embeddableLaunchScript": false,
     "useSass": true,
     "clientPackageManager": "npm",
     "clientFramework": "angularX",
     "clientTheme": "none",
     "clientThemeVariant": "",
-    "creationTimestamp": 1603808044336,
+    "creationTimestamp": 1604591813911,
     "testFrameworks": ["cucumber"],
     "jhiPrefix": "jhi",
     "entitySuffix": "",

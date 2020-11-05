@@ -60,7 +60,7 @@ import { fontAwesomeIcons } from './icons/font-awesome-icons';
     },
   ],
 })
-export class ExampleProjectCoreModule {
+export class VenusdemoCoreModule {
   constructor(iconLibrary: FaIconLibrary, dpConfig: NgbDatepickerConfig) {
     registerLocaleData(locale);
     iconLibrary.addIcons(...fontAwesomeIcons);
