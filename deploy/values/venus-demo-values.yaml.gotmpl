@@ -1,0 +1,71 @@
+# Required vars
+{{- $namespace := requiredEnv "VENUS_DEPLOY_NAMESPACE" }}
+{{- $baseDomain := requiredEnv "BASE_DOMAIN" }}
+{{- $imageRepository := requiredEnv "VENUS_IMAGE_REPOSITORY" }}
+{{- $imageTag := requiredEnv "VENUS_IMAGE_TAG" }}
+{{- $ingressEnabled := eq (requiredEnv "VENUS_INGRESS_ENABLED") "true" }}
+{{- $profilesActive := requiredEnv "VENUS_SPRING_PROFILES_ACTIVE" }}
+
+# Optional vars
+{{- $deploymentApiVersion := env "DEPLOYMENT_API_VERSION" | default "apps/v1" }}
+
+replicaCount: 1
+
+image:
+  repository: "{{ $imageRepository }}"
+  tag: "{{ $imageTag }}"
+  pullPolicy: IfNotPresent
+  pullSecrets:
+    - regcred
+
+env:
+  SPRING_PROFILES_ACTIVE: {{ $profilesActive | quote }}
+  JAVA_TOOL_OPTIONS: "-Xms256m -Xmx512m"
+  MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED: "true"
+  SPRING_DATASOURCE_URL: "jdbc:postgresql://venus-demo-postgresql:5432/venus"
+  SPRING_DATASOURCE_USERNAME: "venus"
+  SPRING_DATASOURCE_PASSWORD: "venus"
+  JHIPSTER_SLEEP: "0"
+
+deployment:
+  enabled: true
+
+service:
+  enabled: true
+  type: ClusterIP
+  ports:
+    default:
+      internal: 8080
+      external: 80
+
+probes:
+  livenessProbe:
+    httpGet:
+      path: /management/health
+      port: default
+    initialDelaySeconds: 180
+  readinessProbe:
+    httpGet:
+      path: /management/health
+      port: default
+
+resources:
+  limits:
+    cpu: 10
+    memory: 2Gi
+  requests:
+    cpu: 100m
+    memory: 256Mi
+
+virtualServices:
+  default:
+    enabled: true
+    gateways:
+      - istio-system/https-only-gateway
+    hosts:
+      - "{{$namespace}}.{{$baseDomain}}"
+    http:
+      - name: default
+        route:
+          - destination:
+              host: venus-demo-monochart

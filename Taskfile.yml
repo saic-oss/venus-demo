@@ -1,10 +1,262 @@
-# https://taskfile.dev
-
-version: '2'
+version: '2.6'
 
 tasks:
+  clean:
+    desc: Get a clean working environment
+    cmds:
+      - ./gradlew --build-cache clean
+
+  installDeps:
+    desc: Install dependencies
+    cmds:
+      - asdf install
+      - npm ci
+
   validatePreCommitHooks:
     desc: Validate the pre-commit hooks
     cmds:
+      - cd src/main/terraform/openscap && terraform init
       - pre-commit install
       - pre-commit run -a
+
+  validateGradle:
+    desc: Validate the codebase
+    cmds:
+      - ./gradlew --build-cache -Pprod liquibaseValidate
+
+  build:
+    desc: Build the project
+    vars:
+      skipNpmInstall: '{{ coalesce .skipNpmInstall .SKIP_NPM_INSTALL "false" }}'
+      appVersion: '{{ coalesce .appVersion .APP_VERSION "not-the-real-version" }}'
+    cmds:
+      - |
+        args=(
+          --build-cache
+          --info
+          -Pprod
+          -Pversion={{ .appVersion }}
+          bootJar
+          jibDockerBuild
+        )
+        if [[ "{{ .skipNpmInstall }}" == "true" ]]; then
+            args+=(-x npmInstall)
+        fi
+        ./gradlew "${args[@]}"
+
+  check:
+    desc: Run all tests except Selenium tests
+    vars:
+      USE_CACHE: '{{ default "" .USE_CACHE }}'
+    cmds:
+      - |
+        args=(
+          --build-cache
+          --info
+          -Pprod
+          check
+        )
+        if [[ -n "{{ .USE_CACHE }}" ]]; then
+          args+=(-x npmInstall)
+          args+=(-x webpack)
+        fi
+        ./gradlew "${args[@]}"
+
+  test:
+    desc: Run unit tests
+    vars:
+      USE_CACHE: '{{ default "" .USE_CACHE }}'
+    cmds:
+      - |
+        args=(
+          --build-cache
+          --info
+          -Pprod
+          test
+        )
+        if [[ -n "{{ .USE_CACHE }}" ]]; then
+          args+=(-x npmInstall)
+          args+=(-x webpack)
+        fi
+        ./gradlew "${args[@]}"
+
+  integrationTest:
+    desc: Run integration tests
+    vars:
+      USE_CACHE: '{{ default "" .USE_CACHE }}'
+    cmds:
+      - |
+        args=(
+          --build-cache
+          --info
+          -Pprod
+          integrationTest
+        )
+        if [[ -n "{{ .USE_CACHE }}" ]]; then
+          args+=(-x npmInstall)
+          args+=(-x webpack)
+        fi
+        ./gradlew "${args[@]}"
+
+  cucumberE2ETest:
+    desc: Run cucumber E2E tests
+    vars:
+      USE_CACHE: '{{ default "" .USE_CACHE }}'
+    cmds:
+      - task: startSelenium
+      - |
+        args=(
+          --build-cache
+          --info
+          -Pprod
+          cucumberE2ETest
+        )
+        if [[ -n "{{ .USE_CACHE }}" ]]; then
+          args+=(-x npmInstall)
+          args+=(-x webpack)
+        fi
+        ./gradlew "${args[@]}"
+
+  cucumberSmokeTest:
+    desc: Run cucumber smoke tests
+    vars:
+      USE_CACHE: '{{ default "" .USE_CACHE }}'
+    cmds:
+      - task: startSelenium
+      - |
+        args=(
+          --build-cache
+          --info
+          -Pprod
+          cucumberSmokeTest
+        )
+        if [[ -n "{{ .USE_CACHE }}" ]]; then
+          args+=(-x npmInstall)
+          args+=(-x webpack)
+        fi
+        ./gradlew "${args[@]}"
+
+  jacocoTestReport:
+    desc: Generate test report for sonarqube
+    vars:
+      USE_CACHE: '{{ default "" .USE_CACHE }}'
+    cmds:
+      - |
+        args=(
+          --build-cache
+          --info
+          -Pprod
+          jacocoTestReport
+        )
+        if [[ -n "{{ .USE_CACHE }}" ]]; then
+          args+=(-x npmInstall)
+          args+=(-x webpack)
+        fi
+        ./gradlew "${args[@]}"
+
+  dockerLogin:
+    desc: Login to a docker registry
+    vars:
+      URL: '{{ default "" .URL }}'
+      USERNAME: '{{ default "" .USERNAME }}'
+      PASSWORD: '{{ default "" .PASSWORD }}'
+    preconditions:
+      - sh: test -n "{{ .URL }}"
+        msg: 'URL not set'
+      - sh: test -n "{{ .USERNAME }}"
+        msg: 'USERNAME not set'
+      - sh: test -n "{{ .PASSWORD }}"
+        msg: 'PASSWORD not set'
+    cmds:
+      - docker login {{ .URL }} -u {{ .USERNAME }} -p {{ .PASSWORD }}
+
+  dockerTag:
+    desc: Tag a docker container
+    vars:
+      TAG_TO_CREATE: '{{ default "" .TAG_TO_CREATE }}'
+    preconditions:
+      - sh: test -n "{{ .TAG_TO_CREATE }}"
+        msg: 'TAG_TO_CREATE not set'
+    cmds:
+      - docker tag venus:latest "{{ .TAG_TO_CREATE }}"
+
+  dockerPush:
+    desc: Push a docker container
+    vars:
+      TAG_TO_PUSH: '{{ default "" .TAG_TO_PUSH }}'
+    preconditions:
+      - sh: test -n "{{ .TAG_TO_PUSH }}"
+        msg: 'TAG_TO_PUSH not set'
+    cmds:
+      - docker push "{{ .TAG_TO_PUSH }}"
+
+  startSelenium:
+    cmds:
+      - docker-compose -f src/main/docker/selenium.yml up -d
+
+  stopSelenium:
+    desc: Cleanup after E2E tests
+    cmds:
+      - docker-compose -f src/main/docker/selenium.yml down
+
+  fossa:
+    desc: Run FOSSA scan
+    silent: true
+    vars:
+      FOSSA_API_KEY: '{{ default "" .FOSSA_API_KEY }}'
+    preconditions:
+      - sh: test -n "{{ .FOSSA_API_KEY }}"
+        msg: 'FOSSA_API_KEY not set'
+    cmds:
+      - FOSSA_API_KEY={{ .FOSSA_API_KEY }} fossa analyze
+
+  deploy:
+    desc: Deploy the application
+    vars:
+      envFile: '{{ default "" .VENUS_ENV_FILE }}'
+      tagOverride: '{{ default "" .VENUS_IMAGE_TAG_OVERRIDE }}'
+    preconditions:
+      - sh: test -n "{{ .envFile }}"
+        msg: 'VENUS_ENV_FILE not set'
+    cmds:
+      - |
+        set -a; source {{ .envFile }}; set +a;
+        if [ -n "{{ .tagOverride }}" ]; then
+          export VENUS_IMAGE_TAG="{{ .tagOverride }}"
+        fi
+        helmfile -f deploy/helmfile.yaml apply
+
+  destroy:
+    desc: Uninstall the application
+    vars:
+      envFile: '{{ default "" .VENUS_ENV_FILE }}'
+    preconditions:
+      - sh: test -n "{{ .envFile }}"
+        msg: 'VENUS_ENV_FILE not set'
+    cmds:
+      - set -a; source {{ .envFile }}; set +a; helmfile -f deploy/helmfile.yaml destroy
+
+  getKubeconfig:
+    desc: Get kubeconfig from EKS for specified cluster
+    vars:
+      CLUSTER_NAME: '{{ default "" .CLUSTER_NAME }}'
+      AWS_DEFAULT_REGION: '{{ default "" .AWS_DEFAULT_REGION }}'
+      AWS_ACCOUNT_ID: '{{ default "" .AWS_ACCOUNT_ID }}'
+      OUT_FILE: 'kubeconfig'
+    preconditions:
+      - sh: test -n "{{ .CLUSTER_NAME }}"
+        msg: 'CLUSTER_NAME not set'
+      - sh: test -n "{{ .AWS_DEFAULT_REGION }}"
+        msg: 'AWS_DEFAULT_REGION not set'
+      - sh: test -n "{{ .AWS_ACCOUNT_ID }}"
+        msg: 'AWS_ACCOUNT_ID not set'
+    cmds:
+      - |
+        aws eks update-kubeconfig \
+          --name {{ .CLUSTER_NAME }} \
+          --role-arn "arn:aws:iam::{{ .AWS_ACCOUNT_ID }}:role/{{ .CLUSTER_NAME }}-k8s-master" \
+          --kubeconfig "{{ .OUT_FILE }}" \
+          --alias {{ .CLUSTER_NAME }} \
+          --region {{ .AWS_DEFAULT_REGION }}
+    status:
+      - test -f "{{ .OUT_FILE }}"

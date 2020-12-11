@@ -1,0 +1,27 @@
+repositories:
+  - name: bitnami
+    url: https://charts.bitnami.com/bitnami
+  - name: cloudposse-incubator
+    url: https://charts.cloudposse.com/incubator
+
+helmDefaults:
+  tillerless: true
+  wait: true
+  timeout: 60
+
+releases:
+  - name: Venus-demo-postgresql
+    namespace: {{ requiredEnv "VENUS_DEPLOY_NAMESPACE" }}
+    chart: bitnami/postgresql
+    version: 9.1.2
+    missingFileHandler: Error
+    values:
+      - values/venus-demo-postgresql-values.yaml.gotmpl
+
+  - name: Venus-demo
+    namespace: {{ requiredEnv "VENUS_DEPLOY_NAMESPACE" }}
+    chart: cloudposse-incubator/monochart
+    version: "0.22.0"
+    missingFileHandler: Error
+    values:
+      - values/venus-demo-values.yaml.gotmpl
