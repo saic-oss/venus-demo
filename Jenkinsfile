@@ -2,7 +2,7 @@ pipeline {
   agent {
     kubernetes {
       //cloud 'kubernetes'
-      label "sif-full-cicd-demo-${UUID.randomUUID().toString()}"
+      label "venus-demo-${UUID.randomUUID().toString()}"
       yaml """
 apiVersion: v1
 kind: Pod
@@ -19,7 +19,7 @@ spec:
           cpu: "10000m"
           memory: "8000Mi"
     - name: anvil
-      image: registry.saicinnovationfactory.com/devsecops/docker-images/anvil:0.4.0
+      image: saicoss/anvil:0.5.4
       imagePullPolicy: Always
       command: ['cat']
       tty: true
@@ -290,20 +290,20 @@ spec:
     }
 
     stage('Deliver (Parent)') {
-      steps{
-        when {
-          anyOf {
-            branch 'release/*'
-            branch 'hotfix/*'
-            branch 'develop'
-            branch 'master'
-            buildingTag()
-            allOf {
-              branch 'feature/*'
-              environment name: 'SHOULD_DEPLOY_DEV', value: 'true'
-            }
+      when {
+        anyOf {
+          branch 'release/*'
+          branch 'hotfix/*'
+          branch 'develop'
+          branch 'master'
+          buildingTag()
+          allOf {
+            branch 'feature/*'
+            environment name: 'SHOULD_DEPLOY_DEV', value: 'true'
           }
         }
+      }
+      parallel {
         stage('Deliver - zPlaceholder') {
           steps {
             echo "Placeholder stage to make BlueOcean format the parallel stages correctly"
@@ -313,20 +313,20 @@ spec:
     }
 
     stage('Deploy (Parent)') {
-      steps{
-        when {
-          anyOf {
-            branch 'release/*'
-            branch 'hotfix/*'
-            branch 'develop'
-            branch 'master'
-            buildingTag()
-            allOf {
-              branch 'feature/*'
-              environment name: 'SHOULD_DEPLOY_DEV', value: 'true'
-            }
+      when {
+        anyOf {
+          branch 'release/*'
+          branch 'hotfix/*'
+          branch 'develop'
+          branch 'master'
+          buildingTag()
+          allOf {
+            branch 'feature/*'
+            environment name: 'SHOULD_DEPLOY_DEV', value: 'true'
           }
         }
+      }
+      parallel {
         stage('Deploy - zPlaceholder') {
           steps {
             echo "Placeholder stage to make BlueOcean format the parallel stages correctly"
