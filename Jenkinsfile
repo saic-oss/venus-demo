@@ -290,48 +290,50 @@ spec:
     }
 
     stage('Deliver (Parent)') {
-      when {
-        anyOf {
-          branch 'release/*'
-          branch 'hotfix/*'
-          branch 'develop'
-          branch 'master'
-          buildingTag()
-          allOf {
-            branch 'feature/*'
-            environment name: 'SHOULD_DEPLOY_DEV', value: 'true'
+      steps{
+        when {
+          anyOf {
+            branch 'release/*'
+            branch 'hotfix/*'
+            branch 'develop'
+            branch 'master'
+            buildingTag()
+            allOf {
+              branch 'feature/*'
+              environment name: 'SHOULD_DEPLOY_DEV', value: 'true'
+            }
           }
         }
-      }
-      stage('Deliver - zPlaceholder') {
-        steps {
-          echo "Placeholder stage to make BlueOcean format the parallel stages correctly"
+        stage('Deliver - zPlaceholder') {
+          steps {
+            echo "Placeholder stage to make BlueOcean format the parallel stages correctly"
+          }
         }
       }
     }
 
     stage('Deploy (Parent)') {
-      when {
-        anyOf {
-          branch 'release/*'
-          branch 'hotfix/*'
-          branch 'develop'
-          branch 'master'
-          buildingTag()
-          allOf {
-            branch 'feature/*'
-            environment name: 'SHOULD_DEPLOY_DEV', value: 'true'
+      steps{
+        when {
+          anyOf {
+            branch 'release/*'
+            branch 'hotfix/*'
+            branch 'develop'
+            branch 'master'
+            buildingTag()
+            allOf {
+              branch 'feature/*'
+              environment name: 'SHOULD_DEPLOY_DEV', value: 'true'
+            }
+          }
+        }
+        stage('Deploy - zPlaceholder') {
+          steps {
+            echo "Placeholder stage to make BlueOcean format the parallel stages correctly"
           }
         }
       }
-      stage('Deploy - zPlaceholder') {
-        steps {
-          echo "Placeholder stage to make BlueOcean format the parallel stages correctly"
-        }
-      }
     }
-  }
-}
 
 def getShortSha() {
   return sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
