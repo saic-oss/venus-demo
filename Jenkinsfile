@@ -69,7 +69,7 @@ spec:
     }
   }
   options {
-    gitLabConnection('code.saicinnovationfactory.com')
+    gitLabConnection('gitlab')
     timeout(time: 1, unit: 'HOURS')
   }
   triggers {
@@ -83,10 +83,15 @@ spec:
     CLUSTER_NAME = 'innovation-factory'
     AWS_DEFAULT_REGION = 'us-east-1'
 
+    // Credentials
+    //CONTAINER_REGISTRY = credentials('registry_url')
+    GITLAB_CREDS = credentials('gitlab_credentials') // Creates vars GIT_CREDS_USR and GIT_CREDS_PSW
+    //KUBECONFIG = credentials('demo-kubeconfig')
+
     // Container settings
-    GROUP_NAME = 'Venus'
-    IMAGE_NAME = 'Venus-demo'
-    FULLY_QUALIFIED_IMAGE_NAME = "${DOCKER_REGISTRY}/${GROUP_NAME}/${IMAGE_NAME}"
+    GROUP_NAME = 'venus'
+    IMAGE_NAME = 'venus-demo'
+    FULLY_QUALIFIED_IMAGE_NAME = "${CONTAINER_REGISTRY}/${GROUP_NAME}/${IMAGE_NAME}"
   }
 
   stages {
@@ -155,11 +160,11 @@ spec:
         }
         stage('Login Docker') {
           steps {
-            withCredentials([usernamePassword(credentialsId: 'gitlab-creds', passwordVariable: 'REGISTRY_PASSWORD', usernameVariable: 'REGISTRY_USERNAME')]) {
+            withCredentials([usernamePassword(credentialsId: 'gitlab_credentials', passwordVariable: 'REGISTRY_PASSWORD', usernameVariable: 'REGISTRY_USERNAME')]) {
               // Get logged into the docker registry that we are using
               container('anvil') {
                 sh '''
-                  task dockerLogin URL=${DOCKER_REGISTRY} USERNAME=${REGISTRY_USERNAME} PASSWORD=${REGISTRY_PASSWORD}
+                  task dockerLogin URL=${CONTAINER_REGISTRY} USERNAME=${REGISTRY_USERNAME} PASSWORD=${REGISTRY_PASSWORD}
                 '''
               }
             }
@@ -195,7 +200,7 @@ spec:
       parallel {
         stage('Build Container') {
           steps {
-            withCredentials([usernamePassword(credentialsId: 'gitlab-creds', passwordVariable: 'REGISTRY_PASSWORD', usernameVariable: 'REGISTRY_USERNAME')]) {
+            withCredentials([usernamePassword(credentialsId: 'gitlab_credentials', passwordVariable: 'REGISTRY_PASSWORD', usernameVariable: 'REGISTRY_USERNAME')]) {
               container('anvil') {
                 sh '''
                   task build SKIP_NPM_INSTALL=true APP_VERSION=${APP_VERSION} \
