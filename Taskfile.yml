@@ -15,7 +15,6 @@ tasks:
   validatePreCommitHooks:
     desc: Validate the pre-commit hooks
     cmds:
-      - cd src/main/terraform/openscap && terraform init
       - pre-commit install
       - pre-commit run -a
 
