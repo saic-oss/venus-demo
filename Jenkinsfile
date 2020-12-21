@@ -14,10 +14,10 @@ spec:
       resources:
         requests:
           cpu: "166m"
-          memory: "2666Mi"
+          memory: "500Mi"
         limits:
           cpu: "10000m"
-          memory: "8000Mi"
+          memory: "1000Mi"
     - name: anvil
       image: saicoss/anvil:0.5.4
       imagePullPolicy: Always
@@ -26,10 +26,10 @@ spec:
       resources:
         requests:
           cpu: "166m"
-          memory: "2666Mi"
+          memory: "500Mi"
         limits:
           cpu: "10000m"
-          memory: "8000Mi"
+          memory: "1000Mi"
       env:
         - name: DOCKER_HOST
           value: tcp://localhost:2375
@@ -39,10 +39,10 @@ spec:
       resources:
         requests:
           cpu: "166m"
-          memory: "2666Mi"
+          memory: "500Mi"
         limits:
           cpu: "10000m"
-          memory: "8000Mi"
+          memory: "1000Mi"
       securityContext:
         privileged: true
       env:
@@ -76,22 +76,10 @@ spec:
     gitlab(triggerOnPush: true, triggerOnMergeRequest: true, branchFilterType: 'All')
   }
   environment {
-    SHORT_SHA = getShortSha()
     APP_VERSION = getAppVersion()
-    SHOULD_DEPLOY_DEV = shouldDeployDev()
 
     CLUSTER_NAME = 'innovation-factory'
     AWS_DEFAULT_REGION = 'us-east-1'
-
-    // Credentials
-    //CONTAINER_REGISTRY = credentials('registry_url')
-    GITLAB_CREDS = credentials('gitlab_credentials') // Creates vars GIT_CREDS_USR and GIT_CREDS_PSW
-    //KUBECONFIG = credentials('demo-kubeconfig')
-
-    // Container settings
-    GROUP_NAME = 'venus'
-    IMAGE_NAME = 'venus-demo'
-    FULLY_QUALIFIED_IMAGE_NAME = "${CONTAINER_REGISTRY}/${GROUP_NAME}/${IMAGE_NAME}"
   }
 
   stages {
@@ -130,43 +118,17 @@ spec:
             }
           }
         }
-        stage('Set Env Vars') {
-          steps {
-            withCredentials([usernamePassword(credentialsId: 'sa-sif-jenkins-creds', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
-              container('anvil') {
-                // Get the AWS account number and set it as an environment variable. We'll need it later
-                script {
-                  env.AWS_ACCOUNT_ID = sh(script: 'aws sts get-caller-identity | jq -r .Account', returnStdout: true).trim()
-                }
-              }
-            }
-          }
-        }
         stage('Initialize Codebase') {
           steps {
-            withCredentials([usernamePassword(credentialsId: 'sa-sif-jenkins-creds', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
-              container('anvil') {
-                // - Change the gradle dist to bin which is a lighter download
-                // - Change the max_old_space_size of webpack for faster builds
-                // - run installDeps task
-                sh '''
-                  sed -i '/^distributionUrl.*/s/all/bin/' gradle/wrapper/gradle-wrapper.properties \
-                    && sed -i 's/--max_old_space_size=[1-9].* /--max_old_space_size=5500 /' package.json \
-                    && task installDeps
-                '''
-              }
-            }
-          }
-        }
-        stage('Login Docker') {
-          steps {
-            withCredentials([usernamePassword(credentialsId: 'gitlab_credentials', passwordVariable: 'REGISTRY_PASSWORD', usernameVariable: 'REGISTRY_USERNAME')]) {
-              // Get logged into the docker registry that we are using
-              container('anvil') {
-                sh '''
-                  task dockerLogin URL=${CONTAINER_REGISTRY} USERNAME=${REGISTRY_USERNAME} PASSWORD=${REGISTRY_PASSWORD}
-                '''
-              }
+            container('anvil') {
+              // - Change the gradle dist to bin which is a lighter download
+              // - Change the max_old_space_size of webpack for faster builds
+              // - run installDeps task
+              sh '''
+                sed -i '/^distributionUrl.*/s/all/bin/' gradle/wrapper/gradle-wrapper.properties \
+                  && sed -i 's/--max_old_space_size=[1-9].* /--max_old_space_size=5500 /' package.json \
+                  && task installDeps
+              '''
             }
           }
         }
@@ -200,14 +162,10 @@ spec:
       parallel {
         stage('Build Container') {
           steps {
-            withCredentials([usernamePassword(credentialsId: 'gitlab_credentials', passwordVariable: 'REGISTRY_PASSWORD', usernameVariable: 'REGISTRY_USERNAME')]) {
-              container('anvil') {
-                sh '''
-                  task build SKIP_NPM_INSTALL=true APP_VERSION=${APP_VERSION} \
-                    dockerTag TAG_TO_CREATE=${FULLY_QUALIFIED_IMAGE_NAME}:sca-${SHORT_SHA} \
-                    dockerPush TAG_TO_PUSH=${FULLY_QUALIFIED_IMAGE_NAME}:sca-${SHORT_SHA}
-                '''
-              }
+            container('anvil') {
+              sh '''
+                task build SKIP_NPM_INSTALL=true APP_VERSION=${APP_VERSION}
+              '''
             }
           }
         }
@@ -284,58 +242,6 @@ spec:
       post {
         always {
           junit 'build/test-results/**/*.xml'
-        }
-      }
-    }
-
-    stage('Secure (Parent)') {
-      steps {
-        echo "Placeholder stage to make BlueOcean format the parallel stages correctly"
-      }
-    }
-
-    stage('Deliver (Parent)') {
-      when {
-        anyOf {
-          branch 'release/*'
-          branch 'hotfix/*'
-          branch 'develop'
-          branch 'master'
-          buildingTag()
-          allOf {
-            branch 'feature/*'
-            environment name: 'SHOULD_DEPLOY_DEV', value: 'true'
-          }
-        }
-      }
-      parallel {
-        stage('Deliver - zPlaceholder') {
-          steps {
-            echo "Placeholder stage to make BlueOcean format the parallel stages correctly"
-          }
-        }
-      }
-    }
-
-    stage('Deploy (Parent)') {
-      when {
-        anyOf {
-          branch 'release/*'
-          branch 'hotfix/*'
-          branch 'develop'
-          branch 'master'
-          buildingTag()
-          allOf {
-            branch 'feature/*'
-            environment name: 'SHOULD_DEPLOY_DEV', value: 'true'
-          }
-        }
-      }
-      parallel {
-        stage('Deploy - zPlaceholder') {
-          steps {
-            echo "Placeholder stage to make BlueOcean format the parallel stages correctly"
-          }
         }
       }
     }
