@@ -1,6 +1,6 @@
-package com.saic.Venus.service;
+package com.saic.venus.service;
 
-import com.saic.Venus.domain.User;
+import com.saic.venus.domain.User;
 
 import io.github.jhipster.config.JHipsterProperties;
 

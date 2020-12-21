@@ -1,4 +1,4 @@
 /**
  * Spring MVC REST controllers.
  */
-package com.saic.Venus.web.rest;
+package com.saic.venus.web.rest;

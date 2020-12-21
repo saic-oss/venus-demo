@@ -1,4 +1,4 @@
-package com.saic.Venus.cucumber.stepdefs;
+package com.saic.venus.cucumber.stepdefs;
 
 import org.springframework.test.web.servlet.ResultActions;
 

@@ -1,4 +1,4 @@
-package com.saic.Venus.web.rest.errors;
+package com.saic.venus.web.rest.errors;
 
 import java.io.Serializable;
 

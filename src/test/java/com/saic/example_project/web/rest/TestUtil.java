@@ -1,4 +1,4 @@
-package com.saic.Venus.web.rest;
+package com.saic.venus.web.rest;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;

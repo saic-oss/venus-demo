@@ -1,10 +1,10 @@
-package com.saic.Venus.service;
+package com.saic.venus.service;
 
-import com.saic.Venus.ExampleProjectApp;
-import com.saic.Venus.config.Constants;
-import com.saic.Venus.domain.User;
-import com.saic.Venus.repository.UserRepository;
-import com.saic.Venus.service.dto.UserDTO;
+import com.saic.venus.ExampleProjectApp;
+import com.saic.venus.config.Constants;
+import com.saic.venus.domain.User;
+import com.saic.venus.repository.UserRepository;
+import com.saic.venus.service.dto.UserDTO;
 
 import io.github.jhipster.security.RandomUtil;
 

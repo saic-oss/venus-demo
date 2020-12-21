@@ -1,4 +1,4 @@
 /**
  * Data Transfer Objects.
  */
-package com.saic.Venus.service.dto;
+package com.saic.venus.service.dto;

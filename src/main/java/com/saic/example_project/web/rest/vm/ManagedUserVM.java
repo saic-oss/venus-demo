@@ -1,6 +1,6 @@
-package com.saic.Venus.web.rest.vm;
+package com.saic.venus.web.rest.vm;
 
-import com.saic.Venus.service.dto.UserDTO;
+import com.saic.venus.service.dto.UserDTO;
 import javax.validation.constraints.Size;
 
 /**

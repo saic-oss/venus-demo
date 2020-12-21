@@ -1,4 +1,4 @@
-package com.saic.Venus.repository.timezone;
+package com.saic.venus.repository.timezone;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

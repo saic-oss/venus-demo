@@ -1,17 +1,17 @@
-package com.saic.Venus.web.rest;
+package com.saic.venus.web.rest;
 
-import com.saic.Venus.config.Constants;
-import com.saic.Venus.domain.User;
-import com.saic.Venus.repository.UserRepository;
-import com.saic.Venus.security.AuthoritiesConstants;
-import com.saic.Venus.service.MailService;
+import com.saic.venus.config.Constants;
+import com.saic.venus.domain.User;
+import com.saic.venus.repository.UserRepository;
+import com.saic.venus.security.AuthoritiesConstants;
+import com.saic.venus.service.MailService;
 import org.springframework.data.domain.Sort;
 import java.util.Collections;
-import com.saic.Venus.service.UserService;
-import com.saic.Venus.service.dto.UserDTO;
-import com.saic.Venus.web.rest.errors.BadRequestAlertException;
-import com.saic.Venus.web.rest.errors.EmailAlreadyUsedException;
-import com.saic.Venus.web.rest.errors.LoginAlreadyUsedException;
+import com.saic.venus.service.UserService;
+import com.saic.venus.service.dto.UserDTO;
+import com.saic.venus.web.rest.errors.BadRequestAlertException;
+import com.saic.venus.web.rest.errors.EmailAlreadyUsedException;
+import com.saic.venus.web.rest.errors.LoginAlreadyUsedException;
 
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.PaginationUtil;

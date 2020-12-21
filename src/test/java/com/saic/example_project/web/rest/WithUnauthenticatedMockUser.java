@@ -1,4 +1,4 @@
-package com.saic.Venus.web.rest;
+package com.saic.venus.web.rest;
 
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;

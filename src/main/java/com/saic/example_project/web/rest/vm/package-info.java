@@ -1,4 +1,4 @@
 /**
  * View Models used by Spring MVC REST controllers.
  */
-package com.saic.Venus.web.rest.vm;
+package com.saic.venus.web.rest.vm;

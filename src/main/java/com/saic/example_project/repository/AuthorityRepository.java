@@ -1,6 +1,6 @@
-package com.saic.Venus.repository;
+package com.saic.venus.repository;
 
-import com.saic.Venus.domain.Authority;
+import com.saic.venus.domain.Authority;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,9 +1,9 @@
-package com.saic.Venus.service.dto;
+package com.saic.venus.service.dto;
 
-import com.saic.Venus.config.Constants;
+import com.saic.venus.config.Constants;
 
-import com.saic.Venus.domain.Authority;
-import com.saic.Venus.domain.User;
+import com.saic.venus.domain.Authority;
+import com.saic.venus.domain.User;
 
 import javax.validation.constraints.*;
 import java.time.Instant;

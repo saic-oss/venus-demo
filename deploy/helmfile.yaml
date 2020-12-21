@@ -10,7 +10,7 @@ helmDefaults:
   timeout: 60
 
 releases:
-  - name: Venus-demo-postgresql
+  - name: venus-demo-postgresql
     namespace: {{ requiredEnv "VENUS_DEPLOY_NAMESPACE" }}
     chart: bitnami/postgresql
     version: 9.1.2
@@ -18,7 +18,7 @@ releases:
     values:
       - values/venus-demo-postgresql-values.yaml.gotmpl
 
-  - name: Venus-demo
+  - name: venus-demo
     namespace: {{ requiredEnv "VENUS_DEPLOY_NAMESPACE" }}
     chart: cloudposse-incubator/monochart
     version: "0.22.0"

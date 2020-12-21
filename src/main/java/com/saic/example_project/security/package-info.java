@@ -1,4 +1,4 @@
 /**
  * Spring Security configuration.
  */
-package com.saic.Venus.security;
+package com.saic.venus.security;

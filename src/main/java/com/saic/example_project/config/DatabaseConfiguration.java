@@ -1,4 +1,4 @@
-package com.saic.Venus.config;
+package com.saic.venus.config;
 
 import io.github.jhipster.config.JHipsterConstants;
 import io.github.jhipster.config.h2.H2ConfigurationHelper;
@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import java.sql.SQLException;
 
 @Configuration
-@EnableJpaRepositories("com.saic.Venus.repository")
+@EnableJpaRepositories("com.saic.venus.repository")
 @EnableJpaAuditing(auditorAwareRef = "springSecurityAuditorAware")
 @EnableTransactionManagement
 public class DatabaseConfiguration {

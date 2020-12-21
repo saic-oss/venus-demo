@@ -1,4 +1,4 @@
-# Venus
+# venus
 
 This application was generated using JHipster 6.10.3, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.10.3](https://www.jhipster.tech/documentation-archive/v6.10.3).
 
@@ -120,7 +120,7 @@ Refer to [Doing API-First development][] for more details.
 
 ### Packaging as jar
 
-To build the final jar and optimize the Venus application for production, run:
+To build the final jar and optimize the venus application for production, run:
 
 ```
 

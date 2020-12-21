@@ -1,4 +1,4 @@
-package com.saic.Venus.web.rest.errors;
+package com.saic.venus.web.rest.errors;
 
 public class EmailAlreadyUsedException extends BadRequestAlertException {
 

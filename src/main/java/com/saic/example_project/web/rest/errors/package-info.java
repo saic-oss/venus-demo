@@ -3,4 +3,4 @@
  *
  * More information on https://github.com/zalando/problem-spring-web
  */
-package com.saic.Venus.web.rest.errors;
+package com.saic.venus.web.rest.errors;

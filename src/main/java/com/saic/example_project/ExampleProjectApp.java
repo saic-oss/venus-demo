@@ -1,6 +1,6 @@
-package com.saic.Venus;
+package com.saic.venus;
 
-import com.saic.Venus.config.ApplicationProperties;
+import com.saic.venus.config.ApplicationProperties;
 
 import io.github.jhipster.config.DefaultProfileUtil;
 import io.github.jhipster.config.JHipsterConstants;
@@ -33,7 +33,7 @@ public class ExampleProjectApp {
     }
 
     /**
-     * Initializes Venus.
+     * Initializes venus.
      * <p>
      * Spring profiles can be configured with a program argument --spring.profiles.active=your-active-profile
      * <p>

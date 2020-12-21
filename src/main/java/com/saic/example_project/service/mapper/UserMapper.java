@@ -1,8 +1,8 @@
-package com.saic.Venus.service.mapper;
+package com.saic.venus.service.mapper;
 
-import com.saic.Venus.domain.Authority;
-import com.saic.Venus.domain.User;
-import com.saic.Venus.service.dto.UserDTO;
+import com.saic.venus.domain.Authority;
+import com.saic.venus.domain.User;
+import com.saic.venus.service.dto.UserDTO;
 
 import org.springframework.stereotype.Service;
 

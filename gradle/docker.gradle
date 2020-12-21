@@ -3,7 +3,7 @@ jib {
         image = "adoptopenjdk:11-jre-hotspot"
     }
     to {
-        image = "Venus:latest"
+        image = "venus:latest"
     }
     container {
         entrypoint = ["bash", "-c", "/entrypoint.sh"]

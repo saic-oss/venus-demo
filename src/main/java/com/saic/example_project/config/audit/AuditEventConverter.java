@@ -1,6 +1,6 @@
-package com.saic.Venus.config.audit;
+package com.saic.venus.config.audit;
 
-import com.saic.Venus.domain.PersistentAuditEvent;
+import com.saic.venus.domain.PersistentAuditEvent;
 
 import org.springframework.boot.actuate.audit.AuditEvent;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;

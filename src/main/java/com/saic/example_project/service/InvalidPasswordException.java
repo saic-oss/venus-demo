@@ -1,4 +1,4 @@
-package com.saic.Venus.service;
+package com.saic.venus.service;
 
 public class InvalidPasswordException extends RuntimeException {
 

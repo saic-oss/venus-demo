@@ -1,4 +1,4 @@
-package com.saic.Venus.repository.timezone;
+package com.saic.venus.repository.timezone;
 
 import javax.persistence.*;
 import java.io.Serializable;
