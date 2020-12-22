@@ -174,20 +174,6 @@ spec:
       }
     }
 
-    stage('Test/Secure-prep (Parent)') {
-      parallel {
-        stage('Start E2E Test Env') {
-          steps {
-            container('anvil') {
-              sh '''
-                task startSelenium
-              '''
-            }
-          }
-        }
-      }
-    }
-
     stage('Test (Parent)') {
       // parallel {
       stages {
@@ -206,32 +192,6 @@ spec:
               sh '''
                 task integrationTest USE_CACHE=true
               '''
-            }
-          }
-        }
-        stage('Run E2E Tests') {
-          steps {
-            container('anvil') {
-              // The app needs time to spin up, or the first few tests will always fail.
-              retry(3) {
-                sh '''
-                  task cucumberSmokeTest USE_CACHE=true
-                '''
-              }
-              retry(2) {
-                sh '''
-                  task cucumberE2ETest USE_CACHE=true
-                '''
-              }
-            }
-          }
-          post {
-            always {
-              container('anvil') {
-                sh '''
-                  task stopSelenium
-                '''
-              }
             }
           }
         }
