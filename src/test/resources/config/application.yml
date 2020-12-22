@@ -115,7 +115,3 @@ jhipster:
 # ===================================================================
 
 # application:
-
-selenium:
-  application:
-    root-address: 'http://venus-app:8080'

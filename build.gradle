@@ -123,29 +123,6 @@ task integrationTest(type: Test) {
     reports.html.enabled = false
 }
 
-task cucumberSmokeTest(type: Test) {
-  description = "Execute Cucumber E2E Smoke tests."
-  group = "verification"
-  include "**/*CucumberSmoke*"
-  reports.html.enabled = false
-  testLogging {
-    events 'FAILED', 'SKIPPED'
-    showStandardStreams = true
-  }
-}
-
-task cucumberE2ETest(type: Test) {
-  description = "Execute cucumber E2E BDD tests."
-  group = "verification"
-  include "**/*CucumberE2E*"
-  reports.html.enabled = false
-  testLogging {
-    events 'FAILED', 'SKIPPED'
-    showStandardStreams = true
-  }
-  shouldRunAfter test, cucumberSmokeTest
-}
-
 task cucumberTest(type: Test) {
     description = "Execute cucumber BDD tests."
     group = "verification"
@@ -322,7 +299,6 @@ dependencies {
     testRuntimeOnly "com.tngtech.archunit:archunit-junit5-engine:${archunit_junit5_version}"
     testImplementation "com.h2database:h2"
     liquibaseRuntime "com.h2database:h2"
-    testImplementation "org.seleniumhq.selenium:selenium-java:${selenium_java_version}"
     //jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
 }
 
