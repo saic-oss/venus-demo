@@ -14,9 +14,9 @@ spec:
       resources:
         requests:
           cpu: "166m"
-          memory: "500Mi"
+          memory: "512Mi"
         limits:
-          cpu: "10000m"
+          cpu: "2"
     - name: anvil
       image: saicoss/anvil:0.5.4
       imagePullPolicy: Always
@@ -25,9 +25,9 @@ spec:
       resources:
         requests:
           cpu: "166m"
-          memory: "500Mi"
+          memory: "512Mi"
         limits:
-          cpu: "10000m"
+          cpu: "2"
       env:
         - name: DOCKER_HOST
           value: tcp://localhost:2375
@@ -37,9 +37,9 @@ spec:
       resources:
         requests:
           cpu: "166m"
-          memory: "500Mi"
+          memory: "512Mi"
         limits:
-          cpu: "10000m"
+          cpu: "2"
       securityContext:
         privileged: true
       env:
