@@ -13,10 +13,12 @@ spec:
     - name: jnlp
       resources:
         requests:
-          cpu: "166m"
-          memory: "512Mi"
+        requests:
+          cpu: "1"
+          memory: "4Gi"
         limits:
           cpu: "2"
+          memory: "4Gi"
     - name: anvil
       image: saicoss/anvil:0.5.4
       imagePullPolicy: Always
@@ -24,10 +26,12 @@ spec:
       tty: true
       resources:
         requests:
-          cpu: "166m"
-          memory: "512Mi"
+        requests:
+          cpu: "1"
+          memory: "4Gi"
         limits:
           cpu: "2"
+          memory: "4Gi"
       env:
         - name: DOCKER_HOST
           value: tcp://localhost:2375
@@ -36,10 +40,12 @@ spec:
       imagePullPolicy: Always
       resources:
         requests:
-          cpu: "166m"
-          memory: "512Mi"
+        requests:
+          cpu: "1"
+          memory: "4Gi"
         limits:
           cpu: "2"
+          memory: "4Gi"
       securityContext:
         privileged: true
       env:
