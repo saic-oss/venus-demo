@@ -7,8 +7,6 @@ pipeline {
 apiVersion: v1
 kind: Pod
 spec:
-  imagePullSecrets:
-    - name: gitlab-registry-access
   containers:
     - name: jnlp
       resources:
@@ -20,7 +18,7 @@ spec:
           memory: "512Mi"
     - name: anvil
       image: saicoss/anvil:0.5.4
-      imagePullPolicy: Always
+      imagePullPolicy: IfNotPresent
       command: ['cat']
       tty: true
       resources:
@@ -35,7 +33,7 @@ spec:
           value: tcp://localhost:2375
     - name: dind
       image: docker:stable-dind
-      imagePullPolicy: Always
+      imagePullPolicy: IfNotPresent
       resources:
         requests:
           cpu: "250m"
