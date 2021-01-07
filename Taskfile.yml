@@ -1,10 +1,98 @@
-# https://taskfile.dev
-
-version: '2'
+version: '2.6'
 
 tasks:
+  clean:
+    desc: Get a clean working environment
+    cmds:
+      - ./gradlew --build-cache clean
+
+  installDeps:
+    desc: Install dependencies
+    cmds:
+      - asdf install
+      - npm ci
+
   validatePreCommitHooks:
     desc: Validate the pre-commit hooks
     cmds:
       - pre-commit install
       - pre-commit run -a
+
+  validateGradle:
+    desc: Validate the codebase
+    cmds:
+      - ./gradlew --build-cache -Pprod liquibaseValidate
+
+  build:
+    desc: Build the project
+    vars:
+      skipNpmInstall: '{{ coalesce .skipNpmInstall .SKIP_NPM_INSTALL "false" }}'
+      appVersion: '{{ coalesce .appVersion .APP_VERSION "not-the-real-version" }}'
+    cmds:
+      - |
+        args=(
+          --build-cache
+          --info
+          -Pprod
+          -Pversion={{ .appVersion }}
+          bootJar
+          jibDockerBuild
+        )
+        if [[ "{{ .skipNpmInstall }}" == "true" ]]; then
+            args+=(-x npmInstall)
+        fi
+        ./gradlew "${args[@]}"
+
+  check:
+    desc: Run all tests except Selenium tests
+    vars:
+      USE_CACHE: '{{ default "" .USE_CACHE }}'
+    cmds:
+      - |
+        args=(
+          --build-cache
+          --info
+          -Pprod
+          check
+        )
+        if [[ -n "{{ .USE_CACHE }}" ]]; then
+          args+=(-x npmInstall)
+          args+=(-x webpack)
+        fi
+        ./gradlew "${args[@]}"
+
+  test:
+    desc: Run unit tests
+    vars:
+      USE_CACHE: '{{ default "" .USE_CACHE }}'
+    cmds:
+      - |
+        args=(
+          --build-cache
+          --info
+          -Pprod
+          test
+        )
+        if [[ -n "{{ .USE_CACHE }}" ]]; then
+          args+=(-x npmInstall)
+          args+=(-x webpack)
+        fi
+        ./gradlew "${args[@]}"
+
+  integrationTest:
+    desc: Run integration tests
+    vars:
+      USE_CACHE: '{{ default "" .USE_CACHE }}'
+    cmds:
+      - |
+        args=(
+          --build-cache
+          --info
+          -Pprod
+          integrationTest
+        )
+        if [[ -n "{{ .USE_CACHE }}" ]]; then
+          args+=(-x npmInstall)
+          args+=(-x webpack)
+        fi
+        ./gradlew "${args[@]}"
