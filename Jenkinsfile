@@ -101,7 +101,7 @@ spec:
               } else if (
               (env.BRANCH_NAME ==~ /^release\/.*$/) ||
                 (env.BRANCH_NAME ==~ /^hotfix\/.*$/) ||
-                (env.BRANCH_NAME ==~ /^master$/)
+                (env.BRANCH_NAME ==~ /^main$/)
               ) {
                 echo "Deploy env is 'test'"
                 env.DEPLOY_ENV = "test"
