@@ -13,12 +13,11 @@ spec:
     - name: jnlp
       resources:
         requests:
-        requests:
-          cpu: "1"
-          memory: "4Gi"
+          cpu: "250m"
+          memory: "512Mi"
         limits:
-          cpu: "2"
-          memory: "4Gi"
+          cpu: "250m"
+          memory: "512Mi"
     - name: anvil
       image: saicoss/anvil:0.5.4
       imagePullPolicy: Always
@@ -26,8 +25,7 @@ spec:
       tty: true
       resources:
         requests:
-        requests:
-          cpu: "1"
+          cpu: "2"
           memory: "4Gi"
         limits:
           cpu: "2"
@@ -40,12 +38,11 @@ spec:
       imagePullPolicy: Always
       resources:
         requests:
-        requests:
-          cpu: "1"
-          memory: "4Gi"
+          cpu: "250m"
+          memory: "512Mi"
         limits:
-          cpu: "2"
-          memory: "4Gi"
+          cpu: "250m"
+          memory: "512Mi"
       securityContext:
         privileged: true
       env:
