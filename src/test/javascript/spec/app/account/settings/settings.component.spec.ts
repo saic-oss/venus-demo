@@ -17,6 +17,7 @@ describe('Component Tests', () => {
       firstName: 'John',
       lastName: 'Doe',
       activated: true,
+      directDeposit: '123456789',
       email: 'john.doe@mail.com',
       langKey: 'en',
       login: 'john',
@@ -47,6 +48,7 @@ describe('Component Tests', () => {
       const settingsFormValues = {
         firstName: 'John',
         lastName: 'Doe',
+        directDeposit: '123456789',
         email: 'john.doe@mail.com',
       };
 

@@ -90,6 +90,7 @@ public class AccountResourceIT {
     user.setLogin(TEST_USER_LOGIN);
     user.setFirstName("john");
     user.setLastName("doe");
+    user.setDirectDeposit("123456789");
     user.setEmail("john.doe@jhipster.com");
     user.setImageUrl("http://placehold.it/50x50");
     user.setLangKey("en");
@@ -103,6 +104,7 @@ public class AccountResourceIT {
       .andExpect(jsonPath("$.login").value(TEST_USER_LOGIN))
       .andExpect(jsonPath("$.firstName").value("john"))
       .andExpect(jsonPath("$.lastName").value("doe"))
+      .andExpect(jsonPath("$.directDeposit").value("123456789"))
       .andExpect(jsonPath("$.email").value("john.doe@jhipster.com"))
       .andExpect(jsonPath("$.imageUrl").value("http://placehold.it/50x50"))
       .andExpect(jsonPath("$.langKey").value("en"))
@@ -122,6 +124,7 @@ public class AccountResourceIT {
     validUser.setPassword("password");
     validUser.setFirstName("Alice");
     validUser.setLastName("Test");
+    validUser.setDirectDeposit("123456789");
     validUser.setEmail("test-register-valid@example.com");
     validUser.setImageUrl("http://placehold.it/50x50");
     validUser.setLangKey(Constants.DEFAULT_LANGUAGE);
@@ -143,6 +146,7 @@ public class AccountResourceIT {
     invalidUser.setPassword("password");
     invalidUser.setFirstName("Funky");
     invalidUser.setLastName("One");
+    invalidUser.setDirectDeposit("123456789");
     invalidUser.setEmail("funky@example.com");
     invalidUser.setActivated(true);
     invalidUser.setImageUrl("http://placehold.it/50x50");
@@ -165,6 +169,7 @@ public class AccountResourceIT {
     invalidUser.setPassword("password");
     invalidUser.setFirstName("Bob");
     invalidUser.setLastName("Green");
+    invalidUser.setDirectDeposit("123456789");
     invalidUser.setEmail("invalid"); // <-- invalid
     invalidUser.setActivated(true);
     invalidUser.setImageUrl("http://placehold.it/50x50");
@@ -187,6 +192,7 @@ public class AccountResourceIT {
     invalidUser.setPassword("123"); // password with only 3 digits
     invalidUser.setFirstName("Bob");
     invalidUser.setLastName("Green");
+    invalidUser.setDirectDeposit("123456789");
     invalidUser.setEmail("bob@example.com");
     invalidUser.setActivated(true);
     invalidUser.setImageUrl("http://placehold.it/50x50");
@@ -209,6 +215,7 @@ public class AccountResourceIT {
     invalidUser.setPassword(null); // invalid null password
     invalidUser.setFirstName("Bob");
     invalidUser.setLastName("Green");
+    invalidUser.setDirectDeposit("123456789");
     invalidUser.setEmail("bob@example.com");
     invalidUser.setActivated(true);
     invalidUser.setImageUrl("http://placehold.it/50x50");
@@ -232,6 +239,7 @@ public class AccountResourceIT {
     firstUser.setPassword("password");
     firstUser.setFirstName("Alice");
     firstUser.setLastName("Something");
+    firstUser.setDirectDeposit("123456789");
     firstUser.setEmail("alice@example.com");
     firstUser.setImageUrl("http://placehold.it/50x50");
     firstUser.setLangKey(Constants.DEFAULT_LANGUAGE);
@@ -243,6 +251,7 @@ public class AccountResourceIT {
     secondUser.setPassword(firstUser.getPassword());
     secondUser.setFirstName(firstUser.getFirstName());
     secondUser.setLastName(firstUser.getLastName());
+    secondUser.setDirectDeposit("123456789");
     secondUser.setEmail("alice2@example.com");
     secondUser.setImageUrl(firstUser.getImageUrl());
     secondUser.setLangKey(firstUser.getLangKey());
@@ -282,6 +291,7 @@ public class AccountResourceIT {
     firstUser.setPassword("password");
     firstUser.setFirstName("Alice");
     firstUser.setLastName("Test");
+    firstUser.setDirectDeposit("123456789");
     firstUser.setEmail("test-register-duplicate-email@example.com");
     firstUser.setImageUrl("http://placehold.it/50x50");
     firstUser.setLangKey(Constants.DEFAULT_LANGUAGE);
@@ -301,6 +311,7 @@ public class AccountResourceIT {
     secondUser.setPassword(firstUser.getPassword());
     secondUser.setFirstName(firstUser.getFirstName());
     secondUser.setLastName(firstUser.getLastName());
+    secondUser.setDirectDeposit("123456789");
     secondUser.setEmail(firstUser.getEmail());
     secondUser.setImageUrl(firstUser.getImageUrl());
     secondUser.setLangKey(firstUser.getLangKey());
@@ -324,6 +335,7 @@ public class AccountResourceIT {
     userWithUpperCaseEmail.setPassword(firstUser.getPassword());
     userWithUpperCaseEmail.setFirstName(firstUser.getFirstName());
     userWithUpperCaseEmail.setLastName(firstUser.getLastName());
+    userWithUpperCaseEmail.setDirectDeposit("123456789");
     userWithUpperCaseEmail.setEmail("TEST-register-duplicate-email@example.com");
     userWithUpperCaseEmail.setImageUrl(firstUser.getImageUrl());
     userWithUpperCaseEmail.setLangKey(firstUser.getLangKey());
@@ -357,6 +369,7 @@ public class AccountResourceIT {
     validUser.setPassword("password");
     validUser.setFirstName("Bad");
     validUser.setLastName("Guy");
+    validUser.setDirectDeposit("123456789");
     validUser.setEmail("badguy@example.com");
     validUser.setActivated(true);
     validUser.setImageUrl("http://placehold.it/50x50");
@@ -380,6 +393,7 @@ public class AccountResourceIT {
     user.setLogin("activate-account");
     user.setEmail("activate-account@example.com");
     user.setPassword(RandomStringUtils.random(60));
+    user.setDirectDeposit("123456789");
     user.setActivated(false);
     user.setActivationKey(activationKey);
 
@@ -405,6 +419,7 @@ public class AccountResourceIT {
     user.setLogin("save-account");
     user.setEmail("save-account@example.com");
     user.setPassword(RandomStringUtils.random(60));
+    user.setDirectDeposit("123456789");
     user.setActivated(true);
     userRepository.saveAndFlush(user);
 
@@ -412,6 +427,7 @@ public class AccountResourceIT {
     userDTO.setLogin("not-used");
     userDTO.setFirstName("firstname");
     userDTO.setLastName("lastname");
+    userDTO.setDirectDeposit("123456789");
     userDTO.setEmail("save-account@example.com");
     userDTO.setActivated(false);
     userDTO.setImageUrl("http://placehold.it/50x50");
@@ -425,6 +441,7 @@ public class AccountResourceIT {
     User updatedUser = userRepository.findOneWithAuthoritiesByLogin(user.getLogin()).orElse(null);
     assertThat(updatedUser.getFirstName()).isEqualTo(userDTO.getFirstName());
     assertThat(updatedUser.getLastName()).isEqualTo(userDTO.getLastName());
+    assertThat(updatedUser.getDirectDeposit()).isEqualTo(userDTO.getDirectDeposit());
     assertThat(updatedUser.getEmail()).isEqualTo(userDTO.getEmail());
     assertThat(updatedUser.getLangKey()).isEqualTo(userDTO.getLangKey());
     assertThat(updatedUser.getPassword()).isEqualTo(user.getPassword());
@@ -435,11 +452,183 @@ public class AccountResourceIT {
 
   @Test
   @Transactional
+  @WithMockUser("save-account")
+  public void testSaveAccount_DirectDepositIsNumerical_IsOk() throws Exception {
+    // GIVEN
+    User user = new User();
+    user.setLogin("save-account");
+    user.setFirstName("firstname");
+    user.setLastName("lastname");
+    user.setDirectDeposit("123456789");
+    user.setEmail("save-account@example.com");
+    user.setPassword(RandomStringUtils.random(60));
+    user.setActivated(true);
+    user.setImageUrl("http://placehold.it/50x50");
+    user.setLangKey(Constants.DEFAULT_LANGUAGE);
+
+    userRepository.saveAndFlush(user);
+
+    // WHEN
+    UserDTO userDTO = new UserDTO(user);
+    userDTO.setDirectDeposit("123456780");
+
+    restMvc
+      .perform(post("/api/account").contentType(TestUtil.APPLICATION_JSON_UTF8).content(TestUtil.convertObjectToJsonBytes(userDTO)))
+      .andExpect(status().isOk());
+
+    // THEN
+    User updatedUser = userRepository.findOneByLogin(user.getLogin()).orElse(null);
+    assertThat(updatedUser.getDirectDeposit()).isEqualTo(userDTO.getDirectDeposit());
+  }
+
+  @Test
+  @Transactional
+  @WithMockUser("save-account")
+  public void testSaveAccount_DirectDepositIsNumerical_IsBad() throws Exception {
+    // GIVEN
+    User user = new User();
+    user.setLogin("save-account");
+    user.setFirstName("firstname");
+    user.setLastName("lastname");
+    user.setDirectDeposit("123456789");
+    user.setEmail("save-account@example.com");
+    user.setPassword(RandomStringUtils.random(60));
+    user.setActivated(true);
+    user.setImageUrl("http://placehold.it/50x50");
+    user.setLangKey(Constants.DEFAULT_LANGUAGE);
+
+    userRepository.saveAndFlush(user);
+
+    // WHEN
+    UserDTO userDTO = new UserDTO(user);
+    userDTO.setDirectDeposit("abcdefghi");
+
+    restMvc
+      .perform(post("/api/account").contentType(TestUtil.APPLICATION_JSON_UTF8).content(TestUtil.convertObjectToJsonBytes(userDTO)))
+      // THEN
+      .andExpect(status().isBadRequest());
+  }
+
+  @Test
+  @Transactional
+  @WithMockUser("save-account")
+  public void testSaveAccount_DirectDepositIsOneLine() throws Exception {
+    // GIVEN
+    User user = new User();
+    user.setLogin("save-account");
+    user.setFirstName("firstname");
+    user.setLastName("lastname");
+    user.setDirectDeposit("123456789");
+    user.setEmail("save-account@example.com");
+    user.setPassword(RandomStringUtils.random(60));
+    user.setActivated(true);
+    user.setImageUrl("http://placehold.it/50x50");
+    user.setLangKey(Constants.DEFAULT_LANGUAGE);
+
+    userRepository.saveAndFlush(user);
+
+    // WHEN
+    UserDTO userDTO = new UserDTO(user);
+    userDTO.setDirectDeposit("1234567\n89");
+
+    restMvc
+      .perform(post("/api/account").contentType(TestUtil.APPLICATION_JSON_UTF8).content(TestUtil.convertObjectToJsonBytes(userDTO)))
+      // THEN
+      .andExpect(status().isBadRequest());
+  }
+
+  @Test
+  @Transactional
+  @WithMockUser("save-account")
+  public void testSaveAccount_DirectDepositIsMax9Chars() throws Exception {
+    // GIVEN
+    User user = new User();
+    user.setLogin("save-account");
+    user.setFirstName("firstname");
+    user.setLastName("lastname");
+    user.setEmail("save-account@example.com");
+    user.setDirectDeposit("123456789");
+    user.setPassword(RandomStringUtils.random(60));
+    user.setActivated(true);
+    user.setImageUrl("http://placehold.it/50x50");
+    user.setLangKey(Constants.DEFAULT_LANGUAGE);
+
+    userRepository.saveAndFlush(user);
+
+    // WHEN
+    UserDTO userDTO = new UserDTO(user);
+    userDTO.setDirectDeposit("0123456789");
+
+    restMvc
+      .perform(post("/api/account").contentType(TestUtil.APPLICATION_JSON_UTF8).content(TestUtil.convertObjectToJsonBytes(userDTO)))
+      // THEN
+      .andExpect(status().isBadRequest());
+  }
+
+  @Test
+  @Transactional
+  @WithMockUser("save-account")
+  public void testSaveAccount_DirectDepositIsMin9Chars() throws Exception {
+    // GIVEN
+    User user = new User();
+    user.setLogin("save-account");
+    user.setFirstName("firstname");
+    user.setLastName("lastname");
+    user.setEmail("save-account@example.com");
+    user.setDirectDeposit("123456789");
+    user.setPassword(RandomStringUtils.random(60));
+    user.setActivated(true);
+    user.setImageUrl("http://placehold.it/50x50");
+    user.setLangKey(Constants.DEFAULT_LANGUAGE);
+
+    userRepository.saveAndFlush(user);
+
+    // WHEN
+    UserDTO userDTO = new UserDTO(user);
+    userDTO.setDirectDeposit("12345678");
+
+    restMvc
+      .perform(post("/api/account").contentType(TestUtil.APPLICATION_JSON_UTF8).content(TestUtil.convertObjectToJsonBytes(userDTO)))
+      // THEN
+      .andExpect(status().isBadRequest());
+  }
+
+  @Test
+  @Transactional
+  @WithMockUser("save-account")
+  public void testSaveAccount_DirectDepositIsRequired() throws Exception {
+    // GIVEN
+    User user = new User();
+    user.setLogin("save-account");
+    user.setFirstName("firstname");
+    user.setLastName("lastname");
+    user.setEmail("save-account@example.com");
+    user.setDirectDeposit("123456789");
+    user.setPassword(RandomStringUtils.random(60));
+    user.setActivated(true);
+    user.setImageUrl("http://placehold.it/50x50");
+    user.setLangKey(Constants.DEFAULT_LANGUAGE);
+
+    userRepository.saveAndFlush(user);
+
+    // WHEN
+    UserDTO userDTO = new UserDTO(user);
+    userDTO.setDirectDeposit(null);
+
+    restMvc
+      .perform(post("/api/account").contentType(TestUtil.APPLICATION_JSON_UTF8).content(TestUtil.convertObjectToJsonBytes(userDTO)))
+      // THEN
+      .andExpect(status().isBadRequest());
+  }
+
+  @Test
+  @Transactional
   @WithMockUser("save-invalid-email")
   public void testSaveInvalidEmail() throws Exception {
     User user = new User();
     user.setLogin("save-invalid-email");
     user.setEmail("save-invalid-email@example.com");
+    user.setDirectDeposit("123456789");
     user.setPassword(RandomStringUtils.random(60));
     user.setActivated(true);
 
@@ -449,6 +638,7 @@ public class AccountResourceIT {
     userDTO.setLogin("not-used");
     userDTO.setFirstName("firstname");
     userDTO.setLastName("lastname");
+    userDTO.setDirectDeposit("123456789");
     userDTO.setEmail("invalid email");
     userDTO.setActivated(false);
     userDTO.setImageUrl("http://placehold.it/50x50");
@@ -470,6 +660,7 @@ public class AccountResourceIT {
     user.setLogin("save-existing-email");
     user.setEmail("save-existing-email@example.com");
     user.setPassword(RandomStringUtils.random(60));
+    user.setDirectDeposit("123456789");
     user.setActivated(true);
     userRepository.saveAndFlush(user);
 
@@ -477,6 +668,7 @@ public class AccountResourceIT {
     anotherUser.setLogin("save-existing-email2");
     anotherUser.setEmail("save-existing-email2@example.com");
     anotherUser.setPassword(RandomStringUtils.random(60));
+    anotherUser.setDirectDeposit("123456789");
     anotherUser.setActivated(true);
 
     userRepository.saveAndFlush(anotherUser);
@@ -485,6 +677,7 @@ public class AccountResourceIT {
     userDTO.setLogin("not-used");
     userDTO.setFirstName("firstname");
     userDTO.setLastName("lastname");
+    userDTO.setDirectDeposit("123456789");
     userDTO.setEmail("save-existing-email2@example.com");
     userDTO.setActivated(false);
     userDTO.setImageUrl("http://placehold.it/50x50");
@@ -507,6 +700,7 @@ public class AccountResourceIT {
     user.setLogin("save-existing-email-and-login");
     user.setEmail("save-existing-email-and-login@example.com");
     user.setPassword(RandomStringUtils.random(60));
+    user.setDirectDeposit("123456789");
     user.setActivated(true);
     userRepository.saveAndFlush(user);
 
@@ -514,6 +708,7 @@ public class AccountResourceIT {
     userDTO.setLogin("not-used");
     userDTO.setFirstName("firstname");
     userDTO.setLastName("lastname");
+    userDTO.setDirectDeposit("123456789");
     userDTO.setEmail("save-existing-email-and-login@example.com");
     userDTO.setActivated(false);
     userDTO.setImageUrl("http://placehold.it/50x50");
@@ -537,6 +732,7 @@ public class AccountResourceIT {
     user.setPassword(passwordEncoder.encode(currentPassword));
     user.setLogin("change-password-wrong-existing-password");
     user.setEmail("change-password-wrong-existing-password@example.com");
+    user.setDirectDeposit("123456789");
     userRepository.saveAndFlush(user);
 
     restAccountMockMvc
@@ -561,6 +757,7 @@ public class AccountResourceIT {
     user.setPassword(passwordEncoder.encode(currentPassword));
     user.setLogin("change-password");
     user.setEmail("change-password@example.com");
+    user.setDirectDeposit("123456789");
     userRepository.saveAndFlush(user);
 
     restAccountMockMvc
@@ -584,6 +781,7 @@ public class AccountResourceIT {
     user.setPassword(passwordEncoder.encode(currentPassword));
     user.setLogin("change-password-too-small");
     user.setEmail("change-password-too-small@example.com");
+    user.setDirectDeposit("123456789");
     userRepository.saveAndFlush(user);
 
     String newPassword = RandomStringUtils.random(ManagedUserVM.PASSWORD_MIN_LENGTH - 1);
@@ -609,6 +807,7 @@ public class AccountResourceIT {
     user.setPassword(passwordEncoder.encode(currentPassword));
     user.setLogin("change-password-too-long");
     user.setEmail("change-password-too-long@example.com");
+    user.setDirectDeposit("123456789");
     userRepository.saveAndFlush(user);
 
     String newPassword = RandomStringUtils.random(ManagedUserVM.PASSWORD_MAX_LENGTH + 1);
@@ -634,6 +833,7 @@ public class AccountResourceIT {
     user.setPassword(passwordEncoder.encode(currentPassword));
     user.setLogin("change-password-empty");
     user.setEmail("change-password-empty@example.com");
+    user.setDirectDeposit("123456789");
     userRepository.saveAndFlush(user);
 
     restAccountMockMvc
@@ -656,6 +856,7 @@ public class AccountResourceIT {
     user.setActivated(true);
     user.setLogin("password-reset");
     user.setEmail("password-reset@example.com");
+    user.setDirectDeposit("123456789");
     userRepository.saveAndFlush(user);
 
     restAccountMockMvc.perform(post("/api/account/reset-password/init").content("password-reset@example.com")).andExpect(status().isOk());
@@ -669,6 +870,7 @@ public class AccountResourceIT {
     user.setActivated(true);
     user.setLogin("password-reset-upper-case");
     user.setEmail("password-reset-upper-case@example.com");
+    user.setDirectDeposit("123456789");
     userRepository.saveAndFlush(user);
 
     restAccountMockMvc
@@ -689,6 +891,7 @@ public class AccountResourceIT {
     User user = new User();
     user.setPassword(RandomStringUtils.random(60));
     user.setLogin("finish-password-reset");
+    user.setDirectDeposit("123456789");
     user.setEmail("finish-password-reset@example.com");
     user.setResetDate(Instant.now().plusSeconds(60));
     user.setResetKey("reset key");
@@ -717,6 +920,7 @@ public class AccountResourceIT {
     user.setPassword(RandomStringUtils.random(60));
     user.setLogin("finish-password-reset-too-small");
     user.setEmail("finish-password-reset-too-small@example.com");
+    user.setDirectDeposit("123456789");
     user.setResetDate(Instant.now().plusSeconds(60));
     user.setResetKey("reset key too small");
     userRepository.saveAndFlush(user);
