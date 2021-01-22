@@ -82,7 +82,38 @@
             </small>
           </div>
         </div>
-
+        <div class="form-group">
+          <label class="form-control-label" for="directDeposit" jhiTranslate="settings.form.directDeposit">Direct Deposit</label>
+          <input
+            type="text"
+            class="form-control"
+            id="directDeposit"
+            name="directDeposit"
+            placeholder="Your direct deposit routing number"
+            formControlName="directDeposit"
+          />
+          <div
+            *ngIf="
+              settingsForm.get('directDeposit')!.invalid &&
+              (settingsForm.get('directDeposit')!.dirty || settingsForm.get('directDeposit')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="settingsForm.get('directDeposit')?.errors?.required"
+              jhiTranslate="settings.messages.validate.directDeposit.required"
+            >
+              Your direct deposit number is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="settingsForm.get('directDeposit')?.errors?.pattern"
+              jhiTranslate="settings.messages.validate.directDeposit.pattern"
+            >
+              Your direct deposit is required to be 9 numerical characters.
+            </small>
+          </div>
+        </div>
         <button type="submit" [disabled]="settingsForm.invalid" class="btn btn-primary">Save</button>
       </form>
     </div>

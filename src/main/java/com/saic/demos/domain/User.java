@@ -56,6 +56,11 @@ public class User extends AbstractAuditingEntity implements Serializable {
   @Column(length = 254, unique = true)
   private String email;
 
+  @Pattern(regexp = Constants.DIRECT_DEPOSIT_REGEX)
+  @Size(min = 9, max = 9)
+  @Column(name = "direct_deposit", length = 9)
+  private String directDeposit;
+
   @NotNull
   @Column(nullable = false)
   private boolean activated = false;
@@ -141,6 +146,14 @@ public class User extends AbstractAuditingEntity implements Serializable {
     this.email = email;
   }
 
+  public String getDirectDeposit() {
+    return directDeposit;
+  }
+
+  public void setDirectDeposit(String directDeposit) {
+    this.directDeposit = directDeposit;
+  }
+
   public String getImageUrl() {
     return imageUrl;
   }
@@ -221,6 +234,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
             ", firstName='" + firstName + '\'' +
             ", lastName='" + lastName + '\'' +
             ", email='" + email + '\'' +
+            ", directDeposit='" + directDeposit + '\'' +
             ", imageUrl='" + imageUrl + '\'' +
             ", activated='" + activated + '\'' +
             ", langKey='" + langKey + '\'' +

@@ -29,6 +29,10 @@ public class UserDTO {
   @Size(min = 5, max = 254)
   private String email;
 
+  @Pattern(regexp = Constants.DIRECT_DEPOSIT_REGEX)
+  @Size(min = 9, max = 9)
+  private String directDeposit;
+
   @Size(max = 256)
   private String imageUrl;
 
@@ -57,6 +61,7 @@ public class UserDTO {
     this.firstName = user.getFirstName();
     this.lastName = user.getLastName();
     this.email = user.getEmail();
+    this.directDeposit = user.getDirectDeposit();
     this.activated = user.getActivated();
     this.imageUrl = user.getImageUrl();
     this.langKey = user.getLangKey();
@@ -105,6 +110,14 @@ public class UserDTO {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  public String getDirectDeposit() {
+    return directDeposit;
+  }
+
+  public void setDirectDeposit(String directDeposit) {
+    this.directDeposit = directDeposit;
   }
 
   public String getImageUrl() {
@@ -179,6 +192,7 @@ public class UserDTO {
             ", firstName='" + firstName + '\'' +
             ", lastName='" + lastName + '\'' +
             ", email='" + email + '\'' +
+            ", directDeposit='" + directDeposit + '\'' +
             ", imageUrl='" + imageUrl + '\'' +
             ", activated=" + activated +
             ", langKey='" + langKey + '\'' +

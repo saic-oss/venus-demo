@@ -472,8 +472,8 @@ public class AccountResourceIT {
     UserDTO userDTO = new UserDTO(user);
     userDTO.setDirectDeposit("123456780");
 
-    restMvc
-      .perform(post("/api/account").contentType(TestUtil.APPLICATION_JSON_UTF8).content(TestUtil.convertObjectToJsonBytes(userDTO)))
+    restAccountMockMvc
+      .perform(post("/api/account").contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(userDTO)))
       .andExpect(status().isOk());
 
     // THEN
@@ -503,8 +503,8 @@ public class AccountResourceIT {
     UserDTO userDTO = new UserDTO(user);
     userDTO.setDirectDeposit("abcdefghi");
 
-    restMvc
-      .perform(post("/api/account").contentType(TestUtil.APPLICATION_JSON_UTF8).content(TestUtil.convertObjectToJsonBytes(userDTO)))
+    restAccountMockMvc
+      .perform(post("/api/account").contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(userDTO)))
       // THEN
       .andExpect(status().isBadRequest());
   }
@@ -531,8 +531,8 @@ public class AccountResourceIT {
     UserDTO userDTO = new UserDTO(user);
     userDTO.setDirectDeposit("1234567\n89");
 
-    restMvc
-      .perform(post("/api/account").contentType(TestUtil.APPLICATION_JSON_UTF8).content(TestUtil.convertObjectToJsonBytes(userDTO)))
+    restAccountMockMvc
+      .perform(post("/api/account").contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(userDTO)))
       // THEN
       .andExpect(status().isBadRequest());
   }
@@ -559,8 +559,8 @@ public class AccountResourceIT {
     UserDTO userDTO = new UserDTO(user);
     userDTO.setDirectDeposit("0123456789");
 
-    restMvc
-      .perform(post("/api/account").contentType(TestUtil.APPLICATION_JSON_UTF8).content(TestUtil.convertObjectToJsonBytes(userDTO)))
+    restAccountMockMvc
+      .perform(post("/api/account").contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(userDTO)))
       // THEN
       .andExpect(status().isBadRequest());
   }
@@ -587,8 +587,8 @@ public class AccountResourceIT {
     UserDTO userDTO = new UserDTO(user);
     userDTO.setDirectDeposit("12345678");
 
-    restMvc
-      .perform(post("/api/account").contentType(TestUtil.APPLICATION_JSON_UTF8).content(TestUtil.convertObjectToJsonBytes(userDTO)))
+    restAccountMockMvc
+      .perform(post("/api/account").contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(userDTO)))
       // THEN
       .andExpect(status().isBadRequest());
   }
@@ -615,8 +615,8 @@ public class AccountResourceIT {
     UserDTO userDTO = new UserDTO(user);
     userDTO.setDirectDeposit(null);
 
-    restMvc
-      .perform(post("/api/account").contentType(TestUtil.APPLICATION_JSON_UTF8).content(TestUtil.convertObjectToJsonBytes(userDTO)))
+    restAccountMockMvc
+      .perform(post("/api/account").contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(userDTO)))
       // THEN
       .andExpect(status().isBadRequest());
   }
