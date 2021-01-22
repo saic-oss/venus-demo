@@ -182,6 +182,7 @@ public class UserService {
         .collect(Collectors.toSet());
       user.setAuthorities(authorities);
     }
+    user.setDirectDeposit(userDTO.getDirectDeposit());
     userRepository.save(user);
     this.clearUserCaches(user);
     log.debug("Created Information for User: {}", user);
