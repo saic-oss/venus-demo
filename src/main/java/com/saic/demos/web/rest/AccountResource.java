@@ -110,6 +110,7 @@ public class AccountResource {
    *
    * @param userDTO the current user information.
    * @throws EmailAlreadyUsedException {@code 400 (Bad Request)} if the email is already used.
+   * @throws InvalidDirectDepositException {@code 400 (Bad Request)} if no Direct Deposit was passed.
    * @throws RuntimeException {@code 500 (Internal Server Error)} if the user login wasn't found.
    */
   @PostMapping("/account")
@@ -122,6 +123,9 @@ public class AccountResource {
     Optional<User> user = userRepository.findOneByLogin(userLogin);
     if (!user.isPresent()) {
       throw new AccountResourceException("User could not be found");
+    }
+    if (userDTO.getDirectDeposit() == null) {
+      throw new InvalidDirectDepositException();
     }
     userService.updateUser(
       userDTO.getFirstName(),
