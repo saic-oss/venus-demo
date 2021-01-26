@@ -147,7 +147,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
   }
 
   public String getDirectDeposit() {
-    return directDeposit;
+    return email;
   }
 
   public void setDirectDeposit(String directDeposit) {
