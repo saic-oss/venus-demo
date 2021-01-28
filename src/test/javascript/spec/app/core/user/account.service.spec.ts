@@ -22,6 +22,7 @@ function accountWithAuthorities(authorities: string[]): Account {
     lastName: '',
     login: '',
     imageUrl: '',
+    directDeposit: '',
   };
 }
 

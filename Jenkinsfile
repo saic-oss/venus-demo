@@ -176,8 +176,7 @@ spec:
     }
 
     stage('Test (Parent)') {
-      // parallel {
-      stages {
+      parallel {
         stage('Run Unit Tests') {
           steps {
             container('anvil') {
