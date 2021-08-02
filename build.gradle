@@ -86,7 +86,7 @@ eclipse {
 defaultTasks "bootRun"
 
 springBoot {
-    mainClassName = "com.saic.demos.venusdemo.VenusdemoApp"
+    mainClassName = "com.saic.demos.VenusApp"
 }
 
 test {
