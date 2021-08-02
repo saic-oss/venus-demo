@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import './vendor';
 import { VenusdemoSharedModule } from 'app/shared/shared.module';
 import { VenusdemoCoreModule } from 'app/core/core.module';
-import { VenusdemoAppRoutingModule } from './app-routing.module';
+import { VenusAppRoutingModule } from './app-routing.module';
 import { VenusdemoHomeModule } from './home/home.module';
 import { VenusdemoEntityModule } from './entities/entity.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
@@ -22,9 +22,9 @@ import { ErrorComponent } from './layouts/error/error.component';
     VenusdemoHomeModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     VenusdemoEntityModule,
-    VenusdemoAppRoutingModule,
+    VenusAppRoutingModule,
   ],
   declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent],
   bootstrap: [MainComponent],
 })
-export class VenusdemoAppModule {}
+export class VenusAppModule {}

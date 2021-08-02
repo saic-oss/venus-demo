@@ -131,7 +131,7 @@ info:
 
 jhipster:
   clientApp:
-    name: 'venusdemoApp'
+    name: 'VenusApp'
   # By default CORS is disabled. Uncomment to enable.
   # cors:
   #     allowed-origins: "*"
