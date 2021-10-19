@@ -2,6 +2,105 @@
 
 This application was generated using JHipster 7.1.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v7.1.0](https://www.jhipster.tech/documentation-archive/v7.1.0).
 
+## Mars-Angular Branch
+
+### SETUP:
+
+1. clone repo and checkout mars-angular branch
+
+```
+git clone https://github.com/saic-oss/venus-demo.git
+cd venus-demo
+git checkout feature/mars-angular
+```
+
+1. install software
+
+```
+brew install go-task/tap/go-task gpg
+```
+
+1. add nodejs plugin to asdf and verify installation
+
+```
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf plugin list
+```
+
+1. cd into repo dir install tools from .tool-versions file
+
+```
+asdf install
+```
+
+1. execute installDeps task from Taskfile.yml
+
+```
+task installDeps
+```
+
+1. execute build task from Taskfile.yml; NOTE: ensure that Docker Desktop is running
+
+```
+task build
+```
+
+### DEV ENVIRONMENT:
+
+In a terminal window
+
+```
+npm install
+./gradlew -x webapp
+```
+
+In a new terminal window
+
+```
+npm start
+```
+
+### DOCKERIZED RUN:
+
+- cd into project root (./venus-demo)
+  ```
+  docker-compose -f src/main/docker/postgresql.yml up -d
+  ./gradlew bootJar -Pprod jibDockerBuild
+  docker-compose -f src/main/docker/app.yml up -d
+  ```
+
+### .TOOL-VERSIONS
+
+```
+nodejs 12.22.7    # lts/erbium
+npm 6.14.15
+```
+
+### ADDING ENTITIES:
+
+- npm install -g generator-jhipster
+- jhipster --version
+- jhipster entity <entityName>
+- follow the prompts and replace existing files with the updated versions that are created
+  https://www.jhipster.tech/creating-an-entity/
+
+### TROUBLESHOOTING
+
+- No version set for command node
+  - example
+  ```
+  node --version
+  No version set for command node
+  Consider adding one of the following versions in your config file at
+  nodejs 12.22.7
+  ```
+  - fix
+  ```
+  asdf reshim
+  ```
+- The HTTP verb you used is not supported for this URL (405 method not allowed)
+  - trying to save a new entity on jhipster layout
+
 ## Development
 
 Before you can build this project, you must install and configure the following dependencies on your machine:
