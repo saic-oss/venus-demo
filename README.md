@@ -100,6 +100,7 @@ npm 6.14.15
   ```
 - The HTTP verb you used is not supported for this URL (405 method not allowed)
   - trying to save a new entity on jhipster layout
+  - restart
 
 ## Development
 
