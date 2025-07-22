@@ -34,7 +34,7 @@
     "zone.js": "0.10.3"
   },
   "devDependencies": {
-    "@angular/cli": "10.0.0",
+    "@angular/cli": "20.1.1",
     "@angular/compiler-cli": "10.0.0",
     "@ngtools/webpack": "10.0.0",
     "@openapitools/openapi-generator-cli": "1.0.13-4.3.1",
@@ -55,7 +55,7 @@
     "eslint-loader": "4.0.2",
     "file-loader": "6.0.0",
     "friendly-errors-webpack-plugin": "1.7.0",
-    "generator-jhipster": "6.10.3",
+    "generator-jhipster": "8.11.0",
     "html-loader": "1.1.0",
     "html-webpack-plugin": "4.3.0",
     "husky": "4.2.5",
